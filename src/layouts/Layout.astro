@@ -4,16 +4,18 @@ import Navigation from "@/components/Navigation.astro";
 import Offcanvas from "@/components/Offcanvas.astro";
 import "@/styles/global.css";
 
-import "@fontsource/josefin-sans";
 import "@fontsource/space-mono";
+import "@fontsource/space-mono/700.css";
 import "@fontsource/yeseva-one";
+import "@fontsource/josefin-sans";
+import "@fontsource/josefin-sans/600.css";
 
 export interface Props {
   title: string;
   bodyClass?: string;
 }
-
 const { title, bodyClass } = Astro.props;
+
 ---
 
 <!DOCTYPE html>

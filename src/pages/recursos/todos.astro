@@ -3,11 +3,13 @@ import Layout from "@/layouts/Layout.astro";
 import Card from "@/components/Card.astro";
 import { getCollection } from "astro:content";
 const allResourses = await getCollection("recursos");
+console.log(allResourses.length)
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="flex flex-col gap-6 py-24">
-    <h1 class="mt-24 mb-6 font-serif text-6xl text-center">Todos los recursos</h1>
+    <h1 class="mt-24 font-serif text-6xl text-center">Todos los recursos</h1>
+    <h2 class="font-sans text-2xl text-center text-stone-200">Mostrando {allResourses.length} resultados</h2>
     <div
       role="list"
       class="grid gap-6 px-4 mx-auto lg:grid-cols-3 md:grid-cols-2"
