@@ -1,8 +1,7 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import Card from "@/components/Card.astro";
-import Layout from "../../layouts/Layout.astro";
-import createSlug from "../../lib/createSlug";
+import Layout from "@/layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const allResourses = await getCollection("recursos");
@@ -18,9 +17,10 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const { title, resourses } = Astro.props;
-const filteredPosts = resourses.filter((item: any) =>
+const collection = resourses.filter((item: any) =>
   item.data?.tags?.includes(title)
 );
+
 ---
 
 <Layout title={`Colección ${slug ? `${slug}` : ""}`}>
@@ -31,7 +31,7 @@ const filteredPosts = resourses.filter((item: any) =>
       </h2>
       <div class="resoursesList" data-pagefind-ignore>
         {
-          filteredPosts.map((item: any) => (
+          collection.map((item: any) => (
             <>
               <Card
                 title={item.data.title}

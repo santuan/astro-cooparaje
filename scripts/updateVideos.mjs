@@ -30,16 +30,17 @@ videos
     const data = await cur;
     const firstItem = data.result.data.contentfulRecursos;
     if (firstItem?.slug) {
-      const { title, slug, excerpt, tags, url, featuredImg, espacio } = firstItem;
+      const { title, slug, excerpt, tags, url, featuredImg, espacio } =
+        firstItem;
       fs.writeFileSync(
         videoPath(slug),
-`---
+        `---
 ${stringify({
-title,
-featuredImg: featuredImg.file.url,
-tags,
-space: espacio,
-url,
+  title,
+  featuredImg: featuredImg.file.url,
+  tags,
+  space: espacio,
+  url,
 })}---
 ${excerpt.excerpt}
 `

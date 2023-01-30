@@ -1,8 +1,7 @@
 ---
 import IconExternalLink from "@/components/Icons/IconExternalLink.astro";
 import Layout from "@/layouts/Layout.astro";
-import { CollectionEntry, getCollection } from "astro:content";
-// import createSlug from "@/lib/createSlug";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const recurso = await getCollection("recursos");

@@ -1,9 +1,9 @@
 html {
-  @apply bg-stone-900
+  @apply bg-stone-900;
 }
 
 body {
-  @apply text-white bg-fixed bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90
+  @apply text-white bg-fixed bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90;
 }
 
 .btn {
@@ -30,7 +30,7 @@ body {
   @apply text-stone-300;
   @apply shadow-stone-800/50;
   @apply ring-stone-600;
-  @apply hover:bg-stone-800
+  @apply hover:bg-stone-800;
 }
 
 .btn.red {
@@ -70,6 +70,7 @@ body {
   @apply hover:text-amber-900;
   @apply hover:ring-amber-200;
 }
+
 
 .pagefind-ui__results {
   @apply max-w-md md:max-w-full mx-auto;

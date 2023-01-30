@@ -1,25 +1,22 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-import PageFindSearch from "../components/PageFind/PageFindSearch.astro";
-import BlogList from "../components/PageFind/List.astro";
 import AllTags from "@/components/AllTags.astro";
+import BlogList from "@/components/PageFind/List.astro";
+import PageFindSearch from "@/components/PageFind/PageFindSearch.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
 const allResourses = await getCollection("recursos");
 ---
 
 <Layout title="Cooparaje — colección de recursos">
   <div class="wrapper">
-    <h1 class="title">
-      Buscar recursos
-    </h1>
+    <h1 class="title">Buscar recursos</h1>
     <h2 class="subtitle">
-      Escriba en el buscador y aguarde a que aparezcan resultados
-      aproximados.
+      Escriba en el buscador y aguarde a que aparezcan resultados aproximados.
     </h2>
     <PageFindSearch />
     <BlogList posts={allResourses} />
-    </div>
-  <AllTags/>
+  </div>
+  <AllTags />
 </Layout>
 
 <style>
