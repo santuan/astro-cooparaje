@@ -1,3 +1,11 @@
+html {
+  @apply bg-stone-900
+}
+
+body {
+  @apply text-white bg-fixed bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90
+}
+
 .btn {
   @apply inline-flex items-center justify-center;
   @apply uppercase font-mono text-xs md:text-base font-bold tracking-wide text-stone-900;

@@ -1,6 +1,8 @@
 ---
 
 import Header from "@/components/Header.astro";
+import Navigation from "@/components/Navigation.astro";
+import Offcanvas from "@/components/Offcanvas.astro";
 import "@/styles/global.css";
 
 import "@fontsource/josefin-sans";
@@ -9,9 +11,10 @@ import "@fontsource/yeseva-one";
 
 export interface Props {
 	title: string;
+	bodyClass?: string
 }
 
-const { title } = Astro.props;
+const { title, bodyClass } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -25,10 +28,19 @@ const { title } = Astro.props;
 		<link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
     <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
 	</head>
-	<body class="text-white bg-fixed bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90">
+	<body class={bodyClass}>
+		<Offcanvas>
+			<Navigation/>
+		</Offcanvas>
 		<Header/>
-		<div data-pagefind-ignore>
+		<div data-pagefind-ignore class="appContainer">
       <slot />
     </div>
 	</body>
 </html>
+
+<style>
+	.appContainer {
+		@apply min-h-screen
+	}
+</style>

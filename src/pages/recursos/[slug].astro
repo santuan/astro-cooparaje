@@ -16,16 +16,16 @@ const { data, render, slug } = Astro.props;
 const { Content } = await render();
 ---
 
-<Layout title={data.title}>
+<Layout title={data.title} bodyClass="recursosSingle">
   <div
     data-pagefind-body
-    class="flex items-center justify-center w-full min-h-screen py-10 overflow-hidden text-white bg-stone-900"
+    class="flex items-center justify-center w-full min-h-screen  overflow-hidden text-white bg-stone-900"
   >
-    <div class="relative z-10 flex flex-col items-start justify-center px-4">
+    <div class="relative z-10 flex flex-col items-start justify-center py-14 px-4">
       {
         data.tags && (
           <div
-            class="flex items-center justify-start w-full gap-3 pt-6 pb-6"
+            class="flex items-center flex-wrap justify-start w-full gap-3 pt-6 pb-6"
             data-pagefind-ignore
           >
             {data.tags.map((i: any) => {
@@ -72,7 +72,7 @@ const { Content } = await render();
     <img
       src={data.featuredImg}
       data-pagefind-meta="image[src]"
-      class="fixed inset-0 z-0 object-cover object-center w-full h-screen opacity-10"
+      class="fixed inset-0 z-0 object-cover object-center w-full h-screen opacity-5 md:opacity-10"
     />
     {
       data.tags && (
@@ -87,3 +87,10 @@ const { Content } = await render();
     }
   </div>
 </Layout>
+
+
+<style is:global>
+  .recursosSingle header {
+    @apply bg-stone-900/90 md:bg-transparent md:backdrop-blur-none backdrop-contrast-100 !important;
+  }
+</style>

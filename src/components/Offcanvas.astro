@@ -1,0 +1,67 @@
+<script>
+  const button = document.querySelector(".toggleMenu") as HTMLElement;
+  const backDropButton = document.querySelector(".backDropButton") as HTMLElement;
+  const offcanvasNav = document.querySelector(".OffcanvasNav") as HTMLElement;
+
+  button.addEventListener("click", function () {
+    offcanvasNav.classList.toggle("active");
+    button.classList.toggle("active");
+    backDropButton.classList.toggle("active");
+  });
+
+  backDropButton.addEventListener("click", function () {
+    offcanvasNav.classList.toggle("active");
+    button.classList.toggle("active");
+    backDropButton.classList.toggle("active");
+  });
+</script>
+
+<button type="button" aria-label="Backdrop" class=" backDropButton"
+  >
+  </button>
+
+<div class="OffcanvasNav">
+  <slot />
+</div>
+
+<button aria-label="Mostrar menu" class="toggleMenu">
+  <span class="pl-3 pr-2 font-mono uppercase">Menú</span>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="currentColor"
+    class="w-8 h-8"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+  </svg>
+</button>
+
+<style is:global>
+  .backDropButton {
+    @apply fixed inset-0 bg-stone-900/60 duration-300 backdrop-blur w-full opacity-0 select-none -z-10;
+  }
+
+  .backDropButton.active {
+    @apply opacity-100 z-[60];
+  }
+
+  .toggleMenu {
+    @apply fixed top-2 bg-stone-800 pr-2 rounded-md hover:bg-stone-700 duration-100 py-1 md:hidden right-2 m-2 z-[60] flex items-center;
+  }
+  .OffcanvasNav {
+    @apply fixed text-left overflow-y-auto shadow-2xl font-mono text-2xl right-0 top-0 bottom-0 bg-stone-900 text-white duration-700 w-56 sm:w-64 p-3 z-[1000] flex justify-start pt-12 flex-col translate-x-full;
+  }
+
+  .OffcanvasNav.active {
+    @apply translate-x-0;
+  }
+
+  .OffcanvasNav nav {
+    @apply !flex-col
+  }
+</style>
