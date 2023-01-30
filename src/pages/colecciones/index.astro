@@ -13,8 +13,9 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
 
 <Layout title="Colecciones">
   <div class="wrapper">
+    <SwiperByTags/>
     <div class="innerWrapper">
-      <Hero title="Colecciones" />
+      <Hero title="Todas las colecciones" />
       <div class="collectionList">
         {
           tags &&
@@ -27,12 +28,12 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
       </div>
     </div>
   </div>
-  <SwiperByTags/>
+  
 </Layout>
 
 <style>
   .wrapper {
-    @apply py-24;
+    @apply py-16;
   }
 
   .innerWrapper {

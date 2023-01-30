@@ -17,7 +17,7 @@ const { data, title } = Astro.props;
         data.map(({ data, slug }: any) => {
           return (
             <div class="swiper-slide">
-              <div class="relative flex flex-col items-center justify-center overflow-hidden duration-300 rounded-lg shadow-xl bg-stone-800 ring-slate-800 ring hover:ring-sky-800 group ">
+              <div class="relative flex flex-col items-center justify-center overflow-hidden duration-300 rounded-lg shadow-xl bg-stone-800 ring-stone-800 ring hover:ring-amber-400 group ">
                 <div class="z-0 bg-stone-900">
                   <img
                     decoding="async"
@@ -29,7 +29,7 @@ const { data, title } = Astro.props;
                     class="object-cover object-center w-full  duration-700 scale-[1.3] opacity-70 group-hover:scale-[1.4] group-hover:md:opacity-40 h-64 sm:w-full"
                   />
                 </div>
-                <div class="absolute bottom-0 left-0 right-0 z-10 flex flex-col p-3 bg-gradient-to-b from-transparent via-slate-900/80 to-slate-900">
+                <div class="absolute bottom-0 left-0 right-0 z-10 flex flex-col p-3 bg-gradient-to-b from-transparent via-stone-900/80 to-stone-900">
                   <a
                     href={`/recurso/${slug}`}
                     rel="prefetch"
@@ -177,12 +177,12 @@ const { data, title } = Astro.props;
     display: none !important;
   }
   .swiper-pagination-bullet {
-    @apply hover:!bg-sky-300 hover:!opacity-80;
+    @apply hover:!bg-amber-300 hover:!opacity-80;
   }
   .swiper-pagination-bullet-active {
     opacity: 1 !important;
     background: #fff !important;
-    @apply hover:!opacity-90 hover:!bg-white/80;
+    @apply hover:!opacity-90 hover:!bg-amber-400;
   }
   .swiper-pagination-vertical.swiper-pagination-bullets,
   .swiper-vertical > .swiper-pagination-bullets {
