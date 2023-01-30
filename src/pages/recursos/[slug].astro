@@ -19,13 +19,15 @@ const { Content } = await render();
 <Layout title={data.title} bodyClass="recursosSingle">
   <div
     data-pagefind-body
-    class="flex items-center justify-center w-full min-h-screen  overflow-hidden text-white bg-stone-900"
+    class="flex items-center justify-center w-full min-h-screen px-5 overflow-hidden text-white bg-stone-800 via-stone-900 bg-gradient-to-br from-transparent to-stone-900"
   >
-    <div class="relative z-10 flex flex-col items-start justify-center py-14 px-4">
+    <div
+      class="relative z-10 flex flex-col items-start justify-center px-4 py-14"
+    >
       {
         data.tags && (
           <div
-            class="flex items-center flex-wrap justify-start w-full gap-3 pt-6 pb-6"
+            class="flex flex-wrap items-center justify-start w-full gap-3 pt-6 pb-6"
             data-pagefind-ignore
           >
             {data.tags.map((i: any) => {
@@ -42,7 +44,7 @@ const { Content } = await render();
         )
       }
       <h1
-        class="w-full mb-6 font-serif text-6xl text-left"
+        class="w-full mb-6 font-serif text-4xl text-left md:text-6xl"
         data-pagefind-meta="title"
         data-pagefind-ignore
       >
@@ -65,9 +67,6 @@ const { Content } = await render();
       >
         <Content />
       </article>
-
-      
-      
     </div>
     <img
       src={data.featuredImg}
@@ -87,7 +86,6 @@ const { Content } = await render();
     }
   </div>
 </Layout>
-
 
 <style is:global>
   .recursosSingle header {

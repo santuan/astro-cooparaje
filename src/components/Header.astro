@@ -4,15 +4,21 @@ import Navigation from "@/components/Navigation.astro";
 ---
 
 <header>
-  <Logo />
-  <div class="appNav">
-    <Navigation />
+  <div class="wrapper">
+    <Logo />
+    <div class="appNav">
+      <Navigation />
+    </div>
   </div>
 </header>
 
 <style>
+  .wrapper {
+    @apply max-w-6xl mx-auto flex items-center justify-between px-5;
+  }
+
   header {
-    @apply fixed p-3 left-0 right-0 top-0 bg-stone-900/80 backdrop-contrast-200 flex items-center justify-between backdrop-blur-md z-50;
+    @apply fixed p-3 left-0 right-0 top-0 bg-stone-900/80 backdrop-contrast-200  backdrop-blur-md z-50;
   }
 
   header nav {
