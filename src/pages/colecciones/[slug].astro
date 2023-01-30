@@ -1,0 +1,52 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Card from "@/components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+import createSlug from "../../lib/createSlug";
+
+export async function getStaticPaths() {
+  const allResourses = await getCollection("recursos");
+  const allTags = [
+    ...new Set(allResourses.map((item) => item.data?.tags).flat()),
+  ];
+  const publicTags = allTags.filter((item: any) => item !== undefined);
+  return publicTags.map((item) => ({
+    params: { slug: item },
+    props: { title: item, resourses: allResourses },
+  }));
+}
+
+const { slug } = Astro.params;
+const { title, resourses } = Astro.props;
+const filteredPosts = resourses.filter((item: any) =>
+  item.data?.tags?.includes(title)
+);
+---
+
+<Layout title={`Colección ${slug ? `${slug}` : ""}`}>
+  <div data-pagefind-body class="py-24">
+    <div class="relative z-20 max-w-6xl px-4 pt-10 mx-auto">
+      <h2 class="mb-6 font-serif text-6xl font-light text-left capitalize">
+        {title}
+      </h2>
+      <div class="flex flex-col gap-6" data-pagefind-ignore>
+        {
+          filteredPosts.map((item: any) => (
+            <>
+              <Card
+                title={item.data.title}
+                slug={item.slug}
+                image={item.data.featuredImg}
+                url={item.data.url}
+                text={item.body}
+                tags={item.data.tags}
+              />
+            </>
+          ))
+        }
+      </div>
+    </div>
+
+    <img src="/thumb-default.jpg" role="presentation" class="hidden" data-pagefind-meta="image[src]" />
+  </div>
+</Layout>

@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
+const allResourses = await getCollection("recursos");
+const allTags = [...new Set(allResourses.map((item) => item.data?.tags).flat())];
+const tags = allTags.filter((item: any) => item !== undefined);
+---
+
+<Layout title="Espacios"  >
+  <div class="py-24">
+    <div class="relative z-20 max-w-6xl pt-10 mx-auto">
+      <h1 class="mt-12 mb-6 font-serif text-3xl font-light text-left">
+        Espacios
+      </h1>
+
+      <div class="px-3">
+        {
+          tags &&
+            tags.map((tag) => (
+             <a
+                href={`/colecciones/${tag}`}
+                class="m-1 uppercase btn ghost"
+              >
+                {tag}
+              </a>
+            ))
+        }
+      </div>
+    </div>
+  </div>
+
+</Layout>

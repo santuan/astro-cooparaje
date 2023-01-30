@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+const allResourses = await getCollection("recursos");
+const allTags = [
+  ...new Set(allResourses.map((item) => item.data?.tags).flat()),
+];
+const tags = allTags.sort().filter((item: any) => item !== undefined);
+---
+
+<div class="flex flex-wrap items-center justify-center w-full px-5">
+  {
+    tags &&
+      tags.map((tag) => (
+        <a
+          href={`/colecciones/${tag}`}
+          class="btn m-1 ghost opacity-60 min-w-[100px] hover:opacity-100 !capitalize"
+        >
+          {tag}
+        </a>
+      ))
+  }
+</div>

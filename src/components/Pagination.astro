@@ -1,0 +1,28 @@
+---
+const {
+  prevUrl,
+  nextUrl,
+  prevText = "anterior",
+  nextText = "siguiente",
+} = Astro.props;
+---
+
+{
+  (prevUrl || nextUrl) && (
+    <div class="w-full max-w-lg px-4 mx-auto">
+      <div class="grid grid-cols-2 gap-6 my-6">
+        <a href={prevUrl} class={`btn black ${!prevUrl ? "disabled" : ""}`}>
+          {prevText}
+        </a>
+        <a href={nextUrl} class={`btn black  ${!nextUrl ? "disabled" : ""}`}>
+          {nextText}
+        </a>
+      </div>
+      <div class="flex items-center justify-center w-full">
+        <a href="/recursos/todos" class="btn">
+          Ver todos en una página
+        </a>
+      </div>
+    </div>
+  )
+}
