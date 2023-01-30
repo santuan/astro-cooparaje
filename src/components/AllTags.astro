@@ -7,7 +7,7 @@ const allTags = [
 const tags = allTags.sort().filter((item: any) => item !== undefined);
 ---
 
-<div class="tagContainer">
+<div class="wrapper">
   {
     tags &&
       tags.map((tag) => (
@@ -19,7 +19,7 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
 </div>
 
 <style>
-  .tagContainer {
+  .wrapper {
     @apply flex flex-wrap items-center justify-center gap-3 w-full px-5;
   }
 
