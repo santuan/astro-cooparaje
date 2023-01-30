@@ -1,10 +1,7 @@
 ---
-import AllTags from "@/components/AllTags.astro";
-import BlogList from "@/components/PageFind/List.astro";
-import PageFindSearch from "@/components/PageFind/PageFindSearch.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
-const allResourses = await getCollection("recursos");
+import PageFindSearch from "@/components/PageFindSearch.astro";
+import AllTags from "@/components/AllTags.astro";
 ---
 
 <Layout title="Cooparaje — colección de recursos">
@@ -14,7 +11,6 @@ const allResourses = await getCollection("recursos");
       Escriba en el buscador y aguarde a que aparezcan resultados aproximados.
     </h2>
     <PageFindSearch />
-    <BlogList posts={allResourses} />
   </div>
   <AllTags />
 </Layout>
