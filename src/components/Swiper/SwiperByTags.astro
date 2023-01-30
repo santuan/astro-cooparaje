@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import SwiperCarousel from "./SwiperCarousel.astro";
+const allResourses = await getCollection("recursos");
+const filters = ["música"];
+const filters2 = ["inteligencia artificial"];
+const filters3 = ["mapas"];
+const filters4 = ["aprendizaje"];
+const filters5 = ["diseño"];
+
+const getMusica = allResourses
+  .sort()
+  .filter((person) =>
+    filters.every((filter) => person.data.tags?.includes(filter))
+  )
+  .slice(0, 8);
+
+const getInteligencia = allResourses
+  .sort()
+  .filter((person) =>
+    filters2.every((filter) => person.data.tags?.includes(filter))
+  )
+  .slice(0, 8);
+
+const getMapas = allResourses
+  .sort()
+  .filter((person) =>
+    filters3.every((filter) => person.data.tags?.includes(filter))
+  )
+  .slice(0, 8);
+
+const getAprendizaje = allResourses
+  .sort()
+  .filter((person) =>
+    filters4.every((filter) => person.data.tags?.includes(filter))
+  )
+  .slice(0, 8);
+
+const getDiseno = allResourses
+  .sort()
+  .filter((person) =>
+    filters5.every((filter) => person.data.tags?.includes(filter))
+  )
+  .slice(0, 8);
+---
+
+<div class="wrapper">
+  <SwiperCarousel title="Diseño" data={getDiseno} />
+  <SwiperCarousel title="Música" data={getMusica} />
+  <SwiperCarousel title="inteligencia artificial" data={getInteligencia} />
+  <SwiperCarousel title="Mapas" data={getMapas} />
+  <SwiperCarousel title="Aprendizaje" data={getAprendizaje} />
+</div>
+
+<style>
+  .wrapper {
+    @apply flex flex-col w-full gap-0 bg-stone-900;
+  }
+</style>

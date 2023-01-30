@@ -29,6 +29,7 @@
     "yaml": "^2.2.1"
   },
   "dependencies": {
+    "swiper": "^8.4.6",
     "@fontsource/josefin-sans": "^4.5.12",
     "@fontsource/space-mono": "^4.5.12",
     "@fontsource/yeseva-one": "^4.5.10",
