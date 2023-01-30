@@ -3,17 +3,16 @@ import Layout from "@/layouts/Layout.astro";
 import Card from "@/components/Card.astro";
 import { getCollection } from "astro:content";
 const allResourses = await getCollection("recursos");
-console.log(allResourses.length)
+console.log(allResourses.length);
 ---
 
-<Layout title="Welcome to Astro.">
-  <main class="flex flex-col gap-6 py-24">
-    <h1 class="mt-24 font-serif text-6xl text-center">Todos los recursos</h1>
-    <h2 class="font-sans text-2xl text-center text-stone-200">Mostrando {allResourses.length} resultados</h2>
-    <div
-      role="list"
-      class="grid gap-6 px-4 mx-auto lg:grid-cols-3 md:grid-cols-2"
-    >
+<Layout title="Todos los recursos">
+  <main class="wrapper">
+    <h1 class="title">Todos los recursos</h1>
+    <h2 class="subtitle">
+      Mostrando {allResourses.length} resultados
+    </h2>
+    <div role="list" class="resoursesList">
       {
         allResourses.map((item) => (
           <Card
@@ -28,3 +27,21 @@ console.log(allResourses.length)
     </div>
   </main>
 </Layout>
+
+<style>
+  .wrapper {
+    @apply flex flex-col gap-6 py-24;
+  }
+
+  .title {
+    @apply px-6 mb-4 font-serif text-4xl font-light text-center md:text-6xl;
+  }
+
+  .subtitle {
+    @apply px-6 mb-2 font-sans text-lg font-light text-center md:text-xl;
+  }
+
+  .resoursesList {
+    @apply grid gap-6 px-4 mx-auto lg:grid-cols-3 md:grid-cols-2;
+  }
+</style>

@@ -7,17 +7,31 @@ import AllTags from "@/components/AllTags.astro";
 const allResourses = await getCollection("recursos");
 ---
 
-<Layout title="Buscar videos">
-  <div class="relative z-20 max-w-4xl pt-20 pb-6 mx-auto lg:pt-32">
-    <h1 class="px-6 mb-4 font-serif text-4xl font-light text-left md:text-6xl">
+<Layout title="Cooparaje — colección de recursos">
+  <div class="wrapper">
+    <h1 class="title">
       Buscar recursos
     </h1>
-    <h2 class="px-6 mb-2 font-sans text-lg font-light text-left md:text-xl">
+    <h2 class="subtitle">
       Escriba en el buscador y aguarde a que aparezcan resultados
       aproximados.
     </h2>
     <PageFindSearch />
     <BlogList posts={allResourses} />
-  </div>
+    </div>
   <AllTags/>
 </Layout>
+
+<style>
+  .wrapper {
+    @apply relative z-20 max-w-4xl pt-20 pb-6 mx-auto lg:pt-32;
+  }
+
+  .title {
+    @apply px-6 mb-4 font-serif text-4xl font-light text-left md:text-6xl;
+  }
+
+  .subtitle {
+    @apply px-6 mb-2 font-sans text-lg font-light text-left md:text-xl;
+  }
+</style>
