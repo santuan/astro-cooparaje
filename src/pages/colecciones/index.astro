@@ -10,16 +10,14 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
 ---
 
 <Layout title="Colecciones">
-  <div class="py-24">
-    <div class="relative z-20 max-w-6xl pt-10 mx-auto">
-      <h1 class="px-3 mt-0 mb-12 font-serif text-3xl font-light text-center">
-        Colecciones
-      </h1>
-      <div class="flex flex-wrap justify-center gap-3 px-3">
+  <div class="wrapper">
+    <div class="innerWrapper">
+      <h1 class="title">Colecciones</h1>
+      <div class="collectionList">
         {
           tags &&
             tags.map((tag) => (
-              <a href={`/colecciones/${tag}`} class="btn !text-lg ghost !capitalize">
+              <a href={`/colecciones/${tag}`} class="btn ghost">
                 {tag}
               </a>
             ))
@@ -28,3 +26,25 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
     </div>
   </div>
 </Layout>
+
+<style>
+  .wrapper {
+    @apply py-24;
+  }
+
+  .innerWrapper {
+    @apply relative z-20 max-w-6xl pt-10 mx-auto;
+  }
+
+  .title {
+    @apply px-3 mt-0 mb-12 font-serif text-3xl font-light text-center;
+  }
+
+  .collectionList {
+    @apply flex flex-wrap justify-center gap-3 px-3;
+  }
+
+  .btn {
+    @apply !text-lg !capitalize;
+  }
+</style>

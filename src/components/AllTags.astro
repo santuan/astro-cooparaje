@@ -7,16 +7,23 @@ const allTags = [
 const tags = allTags.sort().filter((item: any) => item !== undefined);
 ---
 
-<div class="flex flex-wrap items-center justify-center w-full px-5">
+<div class="tagContainer">
   {
     tags &&
       tags.map((tag) => (
-        <a
-          href={`/colecciones/${tag}`}
-          class="btn m-1 ghost opacity-60 min-w-[100px] hover:opacity-100 !capitalize"
-        >
+        <a href={`/colecciones/${tag}`} class="btn ghost">
           {tag}
         </a>
       ))
   }
 </div>
+
+<style>
+  .tagContainer {
+    @apply flex flex-wrap items-center justify-center gap-3 w-full px-5;
+  }
+
+  .btn {
+    @apply min-w-[100px] !capitalize;
+  }
+</style>

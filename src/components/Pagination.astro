@@ -9,8 +9,8 @@ const {
 
 {
   (prevUrl || nextUrl) && (
-    <div class="w-full max-w-lg px-4 mx-auto">
-      <div class="grid grid-cols-2 gap-6 my-6">
+    <div class="wrapper">
+      <div class="innerWrapper">
         <a href={prevUrl} class={`btn black ${!prevUrl ? "disabled" : ""}`}>
           {prevText}
         </a>
@@ -18,7 +18,7 @@ const {
           {nextText}
         </a>
       </div>
-      <div class="flex items-center justify-center w-full">
+      <div class="seeAll">
         <a href="/recursos/todos" class="btn">
           Ver todos en una página
         </a>
@@ -26,3 +26,17 @@ const {
     </div>
   )
 }
+
+<style>
+  .wrapper {
+    @apply w-full max-w-lg px-4 mx-auto;
+  }
+
+  .innerWrapper {
+    @apply grid grid-cols-2 gap-6 my-6;
+  }
+
+  .seeAll {
+    @apply flex items-center justify-center w-full;
+  }
+</style>
