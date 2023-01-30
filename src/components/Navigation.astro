@@ -18,7 +18,7 @@ const pathname = new URL(Astro.request.url).pathname;
   <a
     class={pathname === "/recursos"
       ? "active"
-      : "" || pathname.includes("/colecciones")
+      : "" || pathname.includes("/recursos")
       ? "active"
       : ""}
     rel="prefetch"
