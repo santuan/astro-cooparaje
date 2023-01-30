@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Card from "@/components/Card.astro";
 import Pagination from "@/components/Pagination.astro";
 import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero/Hero.astro";
 export async function getStaticPaths({ paginate }: any) {
   const allResourses = await getCollection("recursos");
   return paginate(allResourses, { pageSize: 12 });
@@ -15,7 +16,7 @@ const currentPage = page.currentPage ?? 1;
   title={`Cooparaje ${currentPage > 1 ? `— página ${currentPage} ` : ""}`}
 >
   <main class="wrapper">
-    <h1 class="title">Recursos</h1>
+    <Hero title="Recursos" />
     <div role="list" class="resoursesList">
       {
         page.data.map((item: any) => (
@@ -38,9 +39,6 @@ const currentPage = page.currentPage ?? 1;
     @apply flex flex-col gap-6 py-24;
   }
 
-  .title {
-    @apply mt-24 mb-1 font-serif text-6xl text-center;
-  }
   .resoursesList {
     @apply grid max-w-6xl gap-6 px-4 mx-auto md:grid-cols-2;
   }

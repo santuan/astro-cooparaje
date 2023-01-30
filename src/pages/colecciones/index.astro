@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/Hero/Hero.astro";
 
 const allResourses = await getCollection("recursos");
 const allTags = [
@@ -12,7 +13,7 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
 <Layout title="Colecciones">
   <div class="wrapper">
     <div class="innerWrapper">
-      <h1 class="title">Colecciones</h1>
+      <Hero title="Colecciones"/>
       <div class="collectionList">
         {
           tags &&
@@ -33,11 +34,7 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
   }
 
   .innerWrapper {
-    @apply relative z-20 max-w-6xl pt-10 mx-auto;
-  }
-
-  .title {
-    @apply px-3 mt-0 mb-12 font-serif text-3xl font-light text-center;
+    @apply relative z-20 max-w-6xl gap-6 flex flex-col pt-10 mx-auto;
   }
 
   .collectionList {
