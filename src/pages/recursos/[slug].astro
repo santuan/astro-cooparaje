@@ -1,4 +1,5 @@
 ---
+import IconExternalLink from "@/components/Icons/IconExternalLink.astro";
 import Layout from "@/layouts/Layout.astro";
 import { CollectionEntry, getCollection } from "astro:content";
 // import createSlug from "@/lib/createSlug";
@@ -17,61 +18,32 @@ const { Content } = await render();
 ---
 
 <Layout title={data.title} bodyClass="recursosSingle">
-  <div
-    data-pagefind-body
-    class="flex items-center justify-center w-full min-h-screen px-5 overflow-hidden text-white bg-stone-800 via-stone-900 bg-gradient-to-br from-transparent to-stone-900"
-  >
-    <div
-      class="relative z-10 flex flex-col items-start justify-center px-4 py-14"
-    >
+  <div data-pagefind-body class="wrapper">
+    <div class="innerWrapper">
       {
         data.tags && (
-          <div
-            class="flex flex-wrap items-center justify-start w-full gap-3 pt-6 pb-6"
-            data-pagefind-ignore
-          >
+          <div class="tags" data-pagefind-ignore>
             {data.tags.map((i: any) => {
-              return (
-                <a
-                  href={`/colecciones/${i}`}
-                  class="px-3 py-1 font-mono text-sm font-bold text-center uppercase rounded-md hover:text-amber-300 hover:opacity-80 bg-stone-700 text-stone-100"
-                >
-                  {i}
-                </a>
-              );
+              return <a href={`/colecciones/${i}`}>{i}</a>;
             })}
           </div>
         )
       }
-      <h1
-        class="w-full mb-6 font-serif text-4xl text-left md:text-6xl"
-        data-pagefind-meta="title"
-        data-pagefind-ignore
-      >
+      <h1 class="title" data-pagefind-ignore>
         {data.title}
       </h1>
       <a href={data.url} target="_blank" class="btn green" data-pagefind-ignore>
         Visitar web
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5 ml-1"
-          viewBox="0 0 16 16"
-          ><path
-            fill="currentColor"
-            d="M4.53 4.75A.75.75 0 0 1 5.28 4h6.01a.75.75 0 0 1 .75.75v6.01a.75.75 0 0 1-1.5 0v-4.2l-5.26 5.261a.749.749 0 0 1-1.275-.326a.749.749 0 0 1 .215-.734L9.48 5.5h-4.2a.75.75 0 0 1-.75-.75Z"
-          ></path></svg
-        >
+        <IconExternalLink />
       </a>
-      <article
-        class="max-w-xl mt-6 prose prose-lg text-left md:prose-2xl prose-invert"
-      >
+      <article class="mainArticle">
         <Content />
       </article>
     </div>
     <img
       src={data.featuredImg}
       data-pagefind-meta="image[src]"
-      class="fixed inset-0 z-0 object-cover object-center w-full h-screen opacity-5 md:opacity-10"
+      class="backImage"
     />
     {
       data.tags && (
@@ -90,5 +62,35 @@ const { Content } = await render();
 <style is:global>
   .recursosSingle header {
     @apply bg-stone-900/90 md:bg-transparent md:backdrop-blur-none backdrop-contrast-100 !important;
+  }
+</style>
+
+<style>
+  .wrapper {
+    @apply flex items-center justify-center w-full min-h-screen px-5 overflow-hidden text-white bg-stone-800 via-stone-900 bg-gradient-to-br from-transparent to-stone-900;
+  }
+
+  .innerWrapper {
+    @apply relative z-10 flex flex-col items-start justify-center px-4 py-14;
+  }
+
+  .tags {
+    @apply flex flex-wrap items-center justify-start w-full gap-3 pt-6 pb-6;
+  }
+
+  .tags a {
+    @apply px-3 py-1 font-mono text-sm font-bold text-center uppercase rounded-md hover:text-amber-300 hover:opacity-80 bg-stone-700 text-stone-100;
+  }
+
+  .title {
+    @apply w-full mb-6 font-serif text-4xl text-left md:text-6xl;
+  }
+
+  .mainArticle {
+    @apply max-w-xl mt-6 prose prose-lg text-left md:prose-2xl prose-invert;
+  }
+
+  .backImage {
+    @apply fixed inset-0 z-0 object-cover object-center w-full h-screen opacity-5 md:opacity-10;
   }
 </style>
