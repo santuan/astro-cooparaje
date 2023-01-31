@@ -2,9 +2,12 @@
 import Header from "@/components/Header.astro";
 import Navigation from "@/components/Navigation.astro";
 import Offcanvas from "@/components/Offcanvas.astro";
+import BaseHead from "@/components/BaseHead.astro";
+
 import "@/styles/global.css";
 import "swiper/css";
 import "animate.css";
+
 import "@fontsource/josefin-sans";
 import "@fontsource/josefin-sans/600.css";
 import "@fontsource/space-mono";
@@ -13,27 +16,35 @@ import "@fontsource/yeseva-one";
 
 export interface Props {
   title: string;
+  description?: string;
+  image?: string;
   bodyClass?: string;
 }
-const { title = "CooParaje", bodyClass } = Astro.props;
+const {
+  title,
+  description,
+  image = "https://images.ctfassets.net/hamax8g2qtd6/5lxJY8UHC6F25QmUVc6btE/23b074870555f77287daebdd9c19ec33/ogimage.jpg",
+  bodyClass,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <BaseHead
+      title={`Cooparaje | ${title ? `${title}` : ""}`}
+      description={`${
+        description
+          ? `${description}`
+          : "Espacio de colaboración libre"
+      }`}
+      image={image}
+    />
     <link href="/_pagefind/pagefind-ui.css" rel="stylesheet" />
     <script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
   </head>
+  
+
   <body class={bodyClass}>
     <Offcanvas>
       <Navigation />
@@ -43,10 +54,10 @@ const { title = "CooParaje", bodyClass } = Astro.props;
       <slot />
     </div>
   </body>
-</html>
 
-<style>
-  .appContainer {
-    @apply min-h-screen;
-  }
-</style>
+  <style>
+    .appContainer {
+      @apply min-h-screen;
+    }
+  </style>
+</html>

@@ -1,5 +1,6 @@
 ---
 import IconExternalLink from "./Icons/IconExternalLink.astro";
+import { Image } from "@astrojs/image/components";
 
 export interface Props {
   title: string;
@@ -16,7 +17,15 @@ const { title, slug, image, url, text, tags } = Astro.props;
 <div class="card">
   <div class="image">
     <a href={`/recursos/${slug}`}>
-      <img title={title} alt={image} width="300" height="200" src={image} />
+      <Image
+        aspectRatio="1:1"
+        height={700}
+        width={700}
+        format="webp"
+        src={`${image}?h=700&q=70`}
+        alt={title}
+        class="object-cover"
+      />
     </a>
   </div>
   <div class="information">

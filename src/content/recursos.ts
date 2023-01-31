@@ -1,1 +1,1 @@
-export enum ResoursesIDsType {  };
+export enum ResoursesIDsType {}

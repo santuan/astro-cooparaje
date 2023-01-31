@@ -1,103 +1,115 @@
 ---
-import IconExternalLink from "@/components/Icons/IconExternalLink.astro";
-import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
+import IconExternalLink from '@/components/Icons/IconExternalLink.astro';
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from '@astrojs/image/components';
 
 export async function getStaticPaths() {
-  const recurso = await getCollection("recursos");
+	const recurso = await getCollection('recursos');
 
-  return recurso.map((recurso) => ({
-    params: { slug: recurso.slug },
-    props: recurso,
-  }));
+	return recurso.map((recurso) => ({
+		params: { slug: recurso.slug },
+		props: recurso,
+	}));
 }
 
-const { data, render, slug } = Astro.props;
+const { data, render, body } = Astro.props;
 const { Content } = await render();
 ---
 
-<Layout title={data.title} bodyClass="recursosSingle">
-  <div data-pagefind-body class="wrapper">
-    <div class="innerWrapper">
-      {
-        data.tags && (
-          <div class="tags" data-pagefind-ignore>
-            {data.tags.map((i: any) => {
-              return <a href={`/colecciones/${i}`}>{i}</a>;
-            })}
-          </div>
-        )
-      }
+<Layout bodyClass="recursosSingle" title={data.title} description={body} image={data?.featuredImg}>
+	<div data-pagefind-body class="wrapper">
+		<div class="innerWrapper">
+			{
+				data.tags && (
+					<div class="tags" data-pagefind-ignore>
+						{data.tags.map((i: any) => {
+							return <a href={`/colecciones/${i}`}>{i}</a>;
+						})}
+					</div>
+				)
+			}
 
-      <h1 class="title">
-        {data.title}
-      </h1>
-      <a href={data.url} target="_blank" class="btn green" data-pagefind-ignore>
-        Visitar web
-        <IconExternalLink />
-      </a>
-      <article class="mainArticle">
-        <span class="hidden">.</span><Content />
-      </article>
-    </div>
-    <img
-      src={data.featuredImg}
-      data-pagefind-meta="image[src]"
-      class="backImage"
-    />
-    {
-      data.tags && (
-        <div>
-          <div class="hidden">
-            Colecciones:
-            <div class="tags" >
-              {data.tags.map((i: any) => {
-                return (
-                  <>
-                    {i + 1 !== data.tags.length ? `${i}, ` : i}
-                  </>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )
-    }
-  </div>
+			<h1 class="title">
+				{data.title}
+			</h1>
+			<a href={data.url} target="_blank" class="btn green" data-pagefind-ignore>
+				Visitar web
+				<IconExternalLink />
+			</a>
+			<article class="mainArticle">
+				<span class="hidden">.</span><Content />
+			</article>
+		</div>
+		<Image
+			data-pagefind-ignore
+			aspectRatio="16:9"
+			height={900}
+			width={1600}
+			format="webp"
+			src={`${data.featuredImg}?w=1600&h=900&q=70`}
+			alt={data.title}
+			class="backImage"
+		/>
+		<Image
+			data-pagefind-meta="image[src]"
+			aspectRatio="16:9"
+			height={290}
+			width={380}
+			format="webp"
+			src={`${data.featuredImg}?w=380&h=290&q=70`}
+			alt={data.title}
+			class="backImage"
+		/>
+		{
+			data.tags && (
+				<div>
+					<div class="hidden">
+						Colecciones:
+						<div class="tags">
+							{data.tags.map((i: any) => {
+								return <>{i + 1 !== data.tags.length ? `${i}, ` : i}</>;
+							})}
+						</div>
+					</div>
+				</div>
+			)
+		}
+	</div>
 
-  <style is:global>
-    .recursosSingle header {
-      @apply bg-stone-900/90 md:bg-transparent md:backdrop-blur-none backdrop-contrast-100 !important;
-    }
-  </style>
+	<style is:global>
+		.recursosSingle header {
+			@apply bg-stone-900/90 md:bg-transparent md:backdrop-blur-none backdrop-contrast-100 !important;
+		}
+	</style>
 
-  <style>
-    .wrapper {
-      @apply flex items-center justify-center w-full min-h-screen px-5 overflow-hidden text-white bg-stone-800 via-stone-900 bg-gradient-to-br from-transparent to-stone-900;
-    }
+	<style>
+		.wrapper {
+			@apply flex items-center justify-center w-full min-h-screen px-5 overflow-hidden text-white bg-stone-800 via-stone-900 bg-gradient-to-br from-transparent to-stone-900;
+		}
 
-    .innerWrapper {
-      @apply relative z-10 flex flex-col items-start justify-center px-4 py-14;
-    }
+		.innerWrapper {
+			@apply relative z-10 flex flex-col items-start justify-center px-4 py-14;
+		}
 
-    .tags {
-      @apply flex flex-wrap items-center justify-start w-full gap-3 pt-6 pb-6;
-    }
+		.tags {
+			@apply flex flex-wrap items-center justify-start w-full gap-3 pt-6 pb-6;
+		}
 
-    .tags a {
-      @apply px-3 py-1 font-mono text-sm font-bold text-center uppercase rounded-md hover:text-amber-300 hover:opacity-80 bg-stone-700 text-stone-100;
-    }
+		.tags a {
+			@apply px-3 py-1 font-mono text-sm font-bold text-center uppercase rounded-md hover:text-amber-300 hover:opacity-80 bg-stone-700 text-stone-100;
+		}
 
-    .title {
-      @apply w-full mb-6 font-serif text-4xl text-left md:text-6xl;
-    }
+		.title {
+			@apply w-full mb-6 font-serif text-4xl text-left md:text-6xl;
+		}
 
-    .mainArticle {
-      @apply max-w-xl mt-6 prose prose-lg text-left md:prose-2xl prose-invert;
-    }
+		.mainArticle {
+			@apply max-w-xl mt-6 prose prose-lg text-left md:prose-2xl prose-invert;
+		}
 
-    .backImage {
-      @apply fixed inset-0 z-0 object-cover object-center w-full h-screen opacity-5 md:opacity-10;
-    }
-  </style>
+		.backImage {
+			@apply fixed inset-0 z-0 object-cover object-center w-full h-screen opacity-10 blur-md;
+		}
+	</style>
 </Layout>

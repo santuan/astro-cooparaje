@@ -1,10 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+import TagsTitle from "@/components/TagsTitleChecker.astro";
+
 const allResourses = await getCollection("recursos");
 const allTags = [
   ...new Set(allResourses.map((item) => item.data?.tags).flat()),
 ];
 const tags = allTags.sort().filter((item: any) => item !== undefined);
+
 ---
 
 <div class="wrapper">
@@ -13,6 +16,7 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
       tags.map((tag) => (
         <a href={`/colecciones/${tag}`} class="btn ghost">
           {tag}
+          <TagsTitle collectionTitle={tag} title={tag}/>
         </a>
       ))
   }
@@ -24,6 +28,6 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
   }
 
   .btn {
-    @apply min-w-[100px] !text-xs !capitalize;
+    @apply min-w-[100px] !text-sm !capitalize;
   }
 </style>

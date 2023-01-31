@@ -1,72 +1,72 @@
 html {
-  @apply bg-stone-900;
+	@apply bg-stone-900;
 }
 
 body {
-  @apply text-white bg-fixed bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90;
+	@apply text-white bg-fixed bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90;
 }
 
 .btn {
-  @apply inline-flex items-center justify-center;
-  @apply uppercase font-mono text-sm md:text-base font-bold tracking-wide;
-  @apply px-6 py-2 rounded-md;
-  @apply bg-stone-100/80 bg-opacity-90 text-stone-900;
-  @apply border-0 outline-none;
-  @apply cursor-pointer;
-  @apply duration-300;
-  @apply shadow;
-  @apply ring-0 ring-stone-800;
-  @apply hover:bg-stone-300 hover:ring-2 hover:ring-white hover:bg-opacity-80 hover:shadow;
-  @apply focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus:ring-2;
-  @apply print:hidden print:bg-stone-200 print:text-stone-900 !important;
+	@apply inline-flex items-center justify-center;
+	@apply uppercase font-mono text-sm md:text-base font-bold tracking-wide;
+	@apply px-6 py-2 rounded-md;
+	@apply bg-stone-100/80 bg-opacity-90 text-stone-900;
+	@apply border-0 outline-none;
+	@apply cursor-pointer;
+	@apply duration-300;
+	@apply shadow;
+	@apply ring-0 ring-stone-800;
+	@apply hover:bg-stone-300 hover:ring-2 hover:ring-white hover:bg-opacity-80 hover:shadow;
+	@apply focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus:ring-2;
+	@apply print:hidden print:bg-stone-200 print:text-stone-900 !important;
 }
 
 .disabled {
-  @apply pointer-events-none select-none cursor-default opacity-20;
+	@apply pointer-events-none select-none cursor-default opacity-20;
 }
 
 .btn.black {
-  @apply bg-stone-700;
-  @apply text-stone-300;
-  @apply shadow-stone-800/50;
-  @apply ring-stone-600;
-  @apply hover:bg-stone-800;
+	@apply bg-stone-700;
+	@apply text-stone-300;
+	@apply shadow-stone-800/50;
+	@apply ring-stone-600;
+	@apply hover:bg-stone-800;
 }
 
 .btn.red {
-  @apply bg-red-200;
-  @apply text-red-900;
-  @apply shadow-red-500/50;
-  @apply ring-red-600;
+	@apply bg-red-200;
+	@apply text-red-900;
+	@apply shadow-red-500/50;
+	@apply ring-red-600;
 }
 
 .btn.blue {
-  @apply bg-sky-800;
-  @apply text-sky-100;
-  @apply shadow-sky-500/50;
-  @apply ring-sky-600;
+	@apply bg-sky-800;
+	@apply text-sky-100;
+	@apply shadow-sky-500/50;
+	@apply ring-sky-600;
 }
 
 .btn.yellow {
-  @apply bg-amber-300;
-  @apply text-amber-900;
-  @apply shadow-amber-500/50;
-  @apply ring-amber-600;
+	@apply bg-amber-300;
+	@apply text-amber-900;
+	@apply shadow-amber-500/50;
+	@apply ring-amber-600;
 }
 
 .btn.green {
-  @apply bg-emerald-400;
-  @apply text-emerald-900;
-  @apply shadow-emerald-500/50;
-  @apply ring-emerald-600;
+	@apply bg-emerald-400;
+	@apply text-emerald-900;
+	@apply shadow-emerald-500/50;
+	@apply ring-emerald-600;
 }
 
 .btn.ghost {
-  @apply bg-stone-600/50;
-  @apply text-white;
-  @apply shadow-stone-900/50;
-  @apply ring-stone-600;
-  @apply hover:bg-amber-400;
-  @apply hover:text-amber-900;
-  @apply hover:ring-amber-200;
+	@apply bg-stone-600/50;
+	@apply text-white;
+	@apply shadow-stone-900/50;
+	@apply ring-stone-600;
+	@apply hover:bg-amber-400;
+	@apply hover:text-amber-900;
+	@apply hover:ring-amber-200;
 }
