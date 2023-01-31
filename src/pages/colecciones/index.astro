@@ -1,8 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/Hero/Hero.astro';
 import SwiperByTags from '@/components/Swiper/SwiperByTags.astro';
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import slugify from "limax";
 
 const allResourses = await getCollection('recursos');
 const allTags = [...new Set(allResourses.map((item) => item.data?.tags).flat())];
@@ -17,7 +18,7 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
 				{
 					tags &&
 						tags.map((tag) => (
-							<a href={`/colecciones/${tag}`} class="btn ghost">
+							<a href={`/colecciones/${slugify(tag, { lang: "es", replacement: "-" })}`} class="btn ghost">
 								{tag}
 							</a>
 						))

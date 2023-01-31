@@ -1,6 +1,7 @@
 ---
-import IconExternalLink from "./Icons/IconExternalLink.astro";
 import { Image } from "@astrojs/image/components";
+import slugify from "limax";
+import IconExternalLink from "./Icons/IconExternalLink.astro";
 
 export interface Props {
   title: string;
@@ -39,7 +40,7 @@ const { title, slug, image, url, text, tags } = Astro.props;
       {
         tags &&
           tags.map((i: any) => (
-            <a href={`/colecciones/${i}`} class="btn ghost">
+            <a href={`/colecciones/${slugify(i, { lang: "es", replacement: "-" })}`} class="btn ghost">
               {i}
             </a>
           ))

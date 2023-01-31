@@ -1,6 +1,7 @@
 ---
-import { getCollection } from "astro:content";
 import TagsTitle from "@/components/TagsTitleChecker.astro";
+import { getCollection } from "astro:content";
+import slugify from "limax";
 
 const allResourses = await getCollection("recursos");
 const allTags = [
@@ -14,7 +15,7 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
   {
     tags &&
       tags.map((tag) => (
-        <a href={`/colecciones/${tag}`} class="btn ghost">
+        <a href={`/colecciones/${slugify(tag, { lang: "es", replacement: "-" })}`} class="btn ghost">
           {tag}
           <TagsTitle collectionTitle={tag} title={tag}/>
         </a>

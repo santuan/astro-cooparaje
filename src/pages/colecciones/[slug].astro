@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import Card from "@/components/Card.astro";
-import Layout from "@/layouts/Layout.astro";
-import slugify from "limax";
 import TagsTitle from "@/components/TagsTitleChecker.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import slugify from "limax";
 
 export async function getStaticPaths() {
   const allResourses = await getCollection("recursos");
@@ -12,7 +12,7 @@ export async function getStaticPaths() {
   ];
   const publicTags = allTags.filter((item: any) => item !== undefined);
   return publicTags.map((item) => ({
-    params: { slug: item },
+    params: { slug: slugify(item, { lang: "es", replacement: "-" }) },
     props: { title: item, resourses: allResourses },
   }));
 }
