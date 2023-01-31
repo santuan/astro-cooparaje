@@ -29,10 +29,11 @@
     "yaml": "^2.2.1"
   },
   "dependencies": {
-    "swiper": "^8.4.6",
     "@fontsource/josefin-sans": "^4.5.12",
     "@fontsource/space-mono": "^4.5.12",
     "@fontsource/yeseva-one": "^4.5.10",
-    "sass": "^1.57.1"
+    "animate.css": "^4.1.1",
+    "sass": "^1.57.1",
+    "swiper": "^8.4.6"
   }
 }

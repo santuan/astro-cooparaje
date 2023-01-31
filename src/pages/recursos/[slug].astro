@@ -28,7 +28,8 @@ const { Content } = await render();
           </div>
         )
       }
-      <h1 class="title" data-pagefind-ignore>
+
+      <h1 class="title">
         {data.title}
       </h1>
       <a href={data.url} target="_blank" class="btn green" data-pagefind-ignore>
@@ -36,7 +37,7 @@ const { Content } = await render();
         <IconExternalLink />
       </a>
       <article class="mainArticle">
-        <Content />
+        <span class="hidden">.</span><Content />
       </article>
     </div>
     <img
@@ -46,50 +47,57 @@ const { Content } = await render();
     />
     {
       data.tags && (
-        <div class="hidden">
-          ( Colecciones:
-          {data.tags.map((i: any) => {
-            return <a>-{i} </a>;
-          })}
-          )
+        <div>
+          <div class="hidden">
+            Colecciones:
+            <div class="tags" >
+              {data.tags.map((i: any) => {
+                return (
+                  <>
+                    {i + 1 !== data.tags.length ? `${i}, ` : i}
+                  </>
+                );
+              })}
+            </div>
+          </div>
         </div>
       )
     }
   </div>
+
+  <style is:global>
+    .recursosSingle header {
+      @apply bg-stone-900/90 md:bg-transparent md:backdrop-blur-none backdrop-contrast-100 !important;
+    }
+  </style>
+
+  <style>
+    .wrapper {
+      @apply flex items-center justify-center w-full min-h-screen px-5 overflow-hidden text-white bg-stone-800 via-stone-900 bg-gradient-to-br from-transparent to-stone-900;
+    }
+
+    .innerWrapper {
+      @apply relative z-10 flex flex-col items-start justify-center px-4 py-14;
+    }
+
+    .tags {
+      @apply flex flex-wrap items-center justify-start w-full gap-3 pt-6 pb-6;
+    }
+
+    .tags a {
+      @apply px-3 py-1 font-mono text-sm font-bold text-center uppercase rounded-md hover:text-amber-300 hover:opacity-80 bg-stone-700 text-stone-100;
+    }
+
+    .title {
+      @apply w-full mb-6 font-serif text-4xl text-left md:text-6xl;
+    }
+
+    .mainArticle {
+      @apply max-w-xl mt-6 prose prose-lg text-left md:prose-2xl prose-invert;
+    }
+
+    .backImage {
+      @apply fixed inset-0 z-0 object-cover object-center w-full h-screen opacity-5 md:opacity-10;
+    }
+  </style>
 </Layout>
-
-<style is:global>
-  .recursosSingle header {
-    @apply bg-stone-900/90 md:bg-transparent md:backdrop-blur-none backdrop-contrast-100 !important;
-  }
-</style>
-
-<style>
-  .wrapper {
-    @apply flex items-center justify-center w-full min-h-screen px-5 overflow-hidden text-white bg-stone-800 via-stone-900 bg-gradient-to-br from-transparent to-stone-900;
-  }
-
-  .innerWrapper {
-    @apply relative z-10 flex flex-col items-start justify-center px-4 py-14;
-  }
-
-  .tags {
-    @apply flex flex-wrap items-center justify-start w-full gap-3 pt-6 pb-6;
-  }
-
-  .tags a {
-    @apply px-3 py-1 font-mono text-sm font-bold text-center uppercase rounded-md hover:text-amber-300 hover:opacity-80 bg-stone-700 text-stone-100;
-  }
-
-  .title {
-    @apply w-full mb-6 font-serif text-4xl text-left md:text-6xl;
-  }
-
-  .mainArticle {
-    @apply max-w-xl mt-6 prose prose-lg text-left md:prose-2xl prose-invert;
-  }
-
-  .backImage {
-    @apply fixed inset-0 z-0 object-cover object-center w-full h-screen opacity-5 md:opacity-10;
-  }
-</style>

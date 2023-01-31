@@ -10,6 +10,7 @@ specifiers:
   '@tailwindcss/line-clamp': ^0.4.2
   '@tailwindcss/typography': ^0.5.9
   '@types/node': ^18.11.18
+  animate.css: ^4.1.1
   astro: ^2.0.2
   astro-icon: ^0.8.0
   date-fns: ^2.29.3
@@ -24,6 +25,7 @@ dependencies:
   '@fontsource/josefin-sans': 4.5.12
   '@fontsource/space-mono': 4.5.12
   '@fontsource/yeseva-one': 4.5.10
+  animate.css: 4.1.1
   sass: 1.57.1
   swiper: 8.4.6
 
@@ -953,6 +955,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /animate.css/4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
+    dev: false
 
   /ansi-align/3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}

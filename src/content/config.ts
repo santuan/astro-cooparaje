@@ -6,7 +6,8 @@ const resoursesCollection = defineCollection({
     featuredImg: z.string(),
     tags: z.array(z.string()).optional(),
     url: z.string().url({ message: "Invalid url" }),
-  }),
+  })
+  .strict(),
 });
 
 export const collections = {
