@@ -11,12 +11,16 @@ const {
   (prevUrl || nextUrl) && (
     <div class="wrapper">
       <div class="innerWrapper">
-        <a href={prevUrl} class={`btn black ${!prevUrl ? "disabled" : ""}`}>
-          {prevText}
-        </a>
-        <a href={nextUrl} class={`btn black  ${!nextUrl ? "disabled" : ""}`}>
-          {nextText}
-        </a>
+        {prevUrl ? (
+          <a href={prevUrl} class="btn black ">{prevText}</a>
+          ):(
+          <span class="btn black disabled">{prevText}</span>
+        )}
+        {nextUrl ? (
+          <a href={nextUrl} class="btn black ">{nextText}</a>
+          ):(
+          <span class="btn black disabled">{nextText}</span>
+        )}
       </div>
       <div class="seeAll">
         <a href="/recursos/todos" class="btn">
