@@ -18,11 +18,11 @@ const { title, slug, image, url, text, tags } = Astro.props;
   <div class="image">
     <a href={`/recursos/${slug}`}>
       <Image
-        aspectRatio="1:1"
-        height={700}
+        aspectRatio="3:1"
+        height={400}
         width={700}
         format="webp"
-        src={`${image}?h=700&q=70`}
+        src={`${image}?h=400&q=70`}
         alt={title}
         class="object-cover"
       />

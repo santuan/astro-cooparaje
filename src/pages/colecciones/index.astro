@@ -1,50 +1,47 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import Hero from "@/components/Hero/Hero.astro";
-import SwiperByTags from "@/components/Swiper/SwiperByTags.astro";
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero/Hero.astro';
+import SwiperByTags from '@/components/Swiper/SwiperByTags.astro';
 
-const allResourses = await getCollection("recursos");
-const allTags = [
-  ...new Set(allResourses.map((item) => item.data?.tags).flat()),
-];
+const allResourses = await getCollection('recursos');
+const allTags = [...new Set(allResourses.map((item) => item.data?.tags).flat())];
 const tags = allTags.sort().filter((item: any) => item !== undefined);
 ---
 
 <Layout title="Colecciones">
-  <div class="wrapper">
-    <SwiperByTags/>
-    <div class="innerWrapper">
-      <Hero title="Todas las colecciones" />
-      <div class="collectionList">
-        {
-          tags &&
-            tags.map((tag) => (
-              <a href={`/colecciones/${tag}`} class="btn ghost">
-                {tag}
-              </a>
-            ))
-        }
-      </div>
-    </div>
-  </div>
-  
+	<div class="wrapper">
+		<div class="innerWrapper">
+			<Hero title="Todas las colecciones" />
+			<div class="collectionList">
+				{
+					tags &&
+						tags.map((tag) => (
+							<a href={`/colecciones/${tag}`} class="btn ghost">
+								{tag}
+							</a>
+						))
+				}
+			</div>
+		</div>
+		<SwiperByTags />
+	</div>
 </Layout>
 
 <style>
-  .wrapper {
-    @apply py-16;
-  }
+	.wrapper {
+		@apply py-16;
+	}
 
-  .innerWrapper {
-    @apply relative z-20 max-w-6xl gap-6 flex flex-col pt-10 mx-auto;
-  }
+	.innerWrapper {
+		@apply relative z-20 max-w-6xl gap-6 flex flex-col pt-10 mx-auto;
+	}
 
-  .collectionList {
-    @apply flex flex-wrap justify-center gap-3 px-3;
-  }
+	.collectionList {
+		@apply flex flex-wrap justify-center gap-3 px-3 py-6;
+	}
 
-  .btn {
-    @apply !text-lg !capitalize;
-  }
+	.btn {
+		@apply !text-lg !capitalize;
+	}
 </style>
