@@ -26,15 +26,15 @@ const { data, title } = Astro.props;
 					return (
 						<div class="swiper-slide">
 							<div class="relative flex flex-col items-center justify-center overflow-hidden duration-300 rounded-lg shadow-xl bg-stone-800 ring-stone-800 ring hover:ring-amber-400 group ">
-								<div class="z-0  w-full">
+								<div class="z-0 md:h-64 w-full">
 									<Image
 										aspectRatio="4:3"
-										height={500}
-										width={700}
+										height={400}
+										width={540}
 										format="webp"
-										src={`${data.featuredImg}?h=500&q=70`}
+										src={`${data.featuredImg}?h=440&q=70`}
 										alt={data?.title}
-										class="object-cover group-hover:opacity-50 duration-300"
+										class="object-cover md:h-64 group-hover:opacity-50 duration-300"
 									/>
 								</div>
 								<div class="absolute bottom-0 left-0 right-0 z-10 flex flex-col  bg-gradient-to-b from-transparent via-stone-900/80 to-stone-900">
@@ -81,7 +81,7 @@ const { data, title } = Astro.props;
 				slidesPerView: 2,
 				spaceBetween: 20,
 			},
-			1100: {
+			900: {
 				slidesPerView: 3,
 				spaceBetween: 20,
 			},
