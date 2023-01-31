@@ -70,3 +70,19 @@ body {
 	@apply hover:text-amber-900;
 	@apply hover:ring-amber-200;
 }
+
+/* Tooltip container */
+.tooltip {
+    /* position: relative; */
+    display: flex;
+  }
+
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    @apply invisible w-40 duration-300 font-bold text-lg opacity-0 top-0 right-1/2 bg-stone-700 text-white font-sans text-center py-1 px-3 rounded-lg z-10 absolute;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
