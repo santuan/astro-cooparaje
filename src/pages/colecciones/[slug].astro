@@ -34,7 +34,7 @@ const tagTitle = allCollections.filter((item: any) => item.slug === latin)[0];
 	title={`Colección ${slug ? `${slug}` : ''}`}
 	image={`${
 		tagTitle
-			? `${Astro.url}/image/${slug}.png`
+			? `${Astro.site}/image/${slug}.png`
 			: 'https://images.ctfassets.net/hamax8g2qtd6/5lxJY8UHC6F25QmUVc6btE/23b074870555f77287daebdd9c19ec33/ogimage.jpg'
 	}`}
 >

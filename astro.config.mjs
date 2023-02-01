@@ -6,6 +6,7 @@ import image from '@astrojs/image';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://astro-cooparaje.vercel.app',
 	integrations: [
 		tailwind(),
 		react(),
