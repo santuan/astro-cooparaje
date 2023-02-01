@@ -10,9 +10,10 @@ export interface Props {
   url: string;
   text: string;
   tags?: string[];
+  draft?: boolean;
 }
 
-const { title, slug, image, url, text, tags } = Astro.props;
+const { title, slug, image, url, text, tags, draft } = Astro.props;
 ---
 
 <div class="card">
@@ -33,6 +34,7 @@ const { title, slug, image, url, text, tags } = Astro.props;
     <a href={`/recursos/${slug}`} class="title">
       {title}
     </a>
+    <span>{draft}</span>
     <p>
       {text}
     </p>
@@ -73,7 +75,7 @@ const { title, slug, image, url, text, tags } = Astro.props;
   }
 
   .title {
-    @apply inline-flex w-full mb-3 mt-1 font-serif text-3xl font-bold text-left text-yellow-500 capitalize hover:underline hover:text-yellow-300;
+    @apply inline-flex w-full mb-3 mt-1 font-serif text-3xl font-bold text-left text-yellow-500  hover:underline hover:text-yellow-300;
   }
 
   .information {

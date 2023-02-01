@@ -1,13 +1,13 @@
 ---
 import IconExternalLink from '@/components/Icons/IconExternalLink.astro';
 import Layout from '@/layouts/Layout.astro';
-import { getCollection } from 'astro:content';
 import { Image } from '@astrojs/image/components';
+import { getCollection } from 'astro:content';
 import slugify from "limax";
 
 export async function getStaticPaths() {
-	const recurso = await getCollection('recursos');
-
+	const getRecurso = await getCollection('recursos');
+	const recurso = getRecurso.filter((item: any) => item.data.draft === false);
 	return recurso.map((recurso) => ({
 		params: { slug: recurso.slug },
 		props: recurso,

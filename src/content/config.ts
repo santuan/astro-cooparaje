@@ -1,10 +1,10 @@
 import { z, defineCollection } from 'astro:content';
 import { AcceptedTags } from './colecciones';
 
-
 const resoursesCollection = defineCollection({
 	schema: z
 		.object({
+			draft: z.boolean().default(false),
 			title: z.string().max(100),
 			featuredImg: z.string(),
 			tags: z.array(z.enum(AcceptedTags)).optional(),

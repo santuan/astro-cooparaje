@@ -1,48 +1,14 @@
 ---
 import Hero from '@/components/Hero/Hero.astro';
 import SwiperByTags from '@/components/Swiper/SwiperByTags.astro';
+import TagsAll from '@/components/TagsAll.astro';
 import Layout from '@/layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-import slugify from "limax";
-
-const allResourses = await getCollection('recursos');
-const allTags = [...new Set(allResourses.map((item) => item.data?.tags).flat())];
-const tags = allTags.sort().filter((item: any) => item !== undefined);
 ---
 
 <Layout title="Colecciones">
-	<div class="wrapper">
-		<div class="innerWrapper">
-			<Hero title="Todas las colecciones" />
-			<div class="collectionList">
-				{
-					tags &&
-						tags.map((tag) => (
-							<a href={`/colecciones/${slugify(tag, { lang: "es", replacement: "-" })}`} class="btn ghost">
-								{tag}
-							</a>
-						))
-				}
-			</div>
-		</div>
-		<SwiperByTags />
+	<div class="flex flex-col gap-6 py-16">
+		<Hero title="Todas las colecciones" />
+		<TagsAll />
 	</div>
+	<SwiperByTags />
 </Layout>
-
-<style>
-	.wrapper {
-		@apply py-16;
-	}
-
-	.innerWrapper {
-		@apply relative z-20 max-w-6xl gap-6 flex flex-col pt-10 mx-auto;
-	}
-
-	.collectionList {
-		@apply flex flex-wrap justify-center gap-3 px-3 py-6;
-	}
-
-	.btn {
-		@apply !text-lg !capitalize;
-	}
-</style>

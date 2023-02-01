@@ -1,14 +1,11 @@
 ---
-import TagsTitle from "@/components/TagsTitleChecker.astro";
 import { getCollection } from "astro:content";
 import slugify from "limax";
-
 const allResourses = await getCollection("recursos");
 const allTags = [
   ...new Set(allResourses.map((item) => item.data?.tags).flat()),
 ];
 const tags = allTags.sort().filter((item: any) => item !== undefined);
-
 ---
 
 <div class="wrapper">
@@ -28,6 +25,6 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
   }
 
   .btn {
-    @apply min-w-[100px] !text-sm !capitalize;
+    @apply min-w-[120px] px-12 !text-sm !capitalize;
   }
 </style>

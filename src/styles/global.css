@@ -3,26 +3,26 @@ html {
 }
 
 body {
-	@apply text-white bg-fixed bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90;
+	@apply bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90 bg-fixed text-white;
 }
 
 .btn {
 	@apply inline-flex items-center justify-center;
-	@apply uppercase font-mono text-sm md:text-base font-bold tracking-wide;
-	@apply px-6 py-2 rounded-md;
+	@apply font-mono text-sm font-bold uppercase tracking-wide md:text-base;
+	@apply rounded-md px-6 py-2;
 	@apply bg-stone-100/80 bg-opacity-90 text-stone-900;
 	@apply border-0 outline-none;
 	@apply cursor-pointer;
 	@apply duration-300;
 	@apply shadow;
 	@apply ring-0 ring-stone-800;
-	@apply hover:bg-stone-300 hover:ring-2 hover:ring-white hover:bg-opacity-80 hover:shadow;
-	@apply focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus:ring-2;
+	@apply hover:bg-stone-300 hover:bg-opacity-80 hover:shadow hover:ring-2 hover:ring-white;
+	@apply focus:ring-2 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2;
 	@apply print:hidden print:bg-stone-200 print:text-stone-900 !important;
 }
 
 .disabled {
-	@apply pointer-events-none select-none cursor-default opacity-20;
+	@apply pointer-events-none cursor-default select-none opacity-20;
 }
 
 .btn.black {
@@ -73,16 +73,16 @@ body {
 
 /* Tooltip container */
 .tooltip {
-    /* position: relative; */
-    display: flex;
-  }
+	/* position: relative; */
+	display: flex;
+}
 
-  /* Tooltip text */
-  .tooltip .tooltiptext {
-    @apply invisible w-40 duration-300 font-bold text-lg opacity-0 top-0 right-1/2 bg-stone-700 text-white font-sans text-center py-1 px-3 rounded-lg z-10 absolute;
-  }
+/* Tooltip text */
+.tooltip .tooltiptext {
+	@apply invisible absolute top-0 right-1/2 z-10 w-40 rounded-lg bg-stone-700 py-1 px-3 text-center font-sans text-lg font-bold text-white opacity-0 duration-300;
+}
 
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-  }
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}

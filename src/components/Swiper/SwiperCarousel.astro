@@ -7,17 +7,17 @@ const { data, title } = Astro.props;
 const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 ---
 
-<div class="relative py-6 bg-stone-900">
+<div class="relative lg:px-0 px-4 py-6 bg-stone-900">
 	<div class="max-w-6xl px-3 mx-auto mb-3">
 		<a
 			href={`/colecciones/${tagSlug}`}
-			class="hover:text-amber-300 inline-block mx-auto mb-3 font-serif text-3xl md:text-5xl"
+			class="hover:text-amber-300 inline-block mx-auto mb-3 font-serif text-2xl md:text-3xl"
 		>
 			{title}
 		</a>
 	</div>
 	<div
-		class="z-40 !px-12 bg-stone-900 swiper animate__fadeIn animate__animated animate__delay-2s animate__faster"
+		class="z-40 bg-stone-900 swiper animate__fadeIn animate__animated animate__delay-2s animate__faster"
 		id="mySwiper01"
 	>
 		<div
@@ -33,7 +33,7 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 				data.map(({ data, slug }: any) => {
 					return (
 						<div class="swiper-slide">
-							<div class="relative flex flex-col items-center justify-center overflow-hidden duration-300 rounded-lg shadow-xl bg-stone-800 ring-stone-800 ring hover:ring-amber-400 group ">
+							<div class="relative flex flex-col items-center justify-center overflow-hidden duration-300 shadow-xl bg-stone-800 ring-stone-800 ring hover:ring-amber-400 group ">
 								<div class="z-0 md:h-64 w-full">
 									<Image
 										aspectRatio="4:3"
@@ -151,7 +151,7 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 	.swiper-pagination-bullets.swiper-pagination-horizontal,
 	.swiper-pagination-custom,
 	.swiper-pagination-fraction {
-		@apply py-2 px-1 flex left-0 bottom-6 w-full z-30 !important;
+		@apply py-2 px-1 flex left-0 bottom-6 w-full z-30 lg:justify-center !important;
 	}
 	.swiper-pagination-bullets-dynamic {
 		overflow: hidden;
@@ -294,7 +294,7 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 	.swiper-button-prev {
 		position: absolute !important;
 		top: auto !important;
-		bottom: 27px !important;
+		bottom: 22px !important;
 		width: calc(var(--swiper-navigation-size) / 44 * 27);
 		height: var(--swiper-navigation-size);
 		margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
@@ -334,8 +334,7 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 	}
 	.swiper-button-prev,
 	.swiper-rtl .swiper-button-next {
-		left: auto !important;
-		right: 80px !important;
+		@apply  right-20 left-auto lg:right-auto lg:left-2.5;
 	}
 	.swiper-button-prev:after,
 	.swiper-rtl .swiper-button-next:after {

@@ -19,12 +19,14 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const { title, resourses } = Astro.props;
-const collection = resourses.filter((item: any) =>
+const latin = slugify(title, { lang: "es", replacement: "-" });
+const getcollection = resourses.filter((item: any) =>
   item.data?.tags?.includes(title)
 );
+const collection = getcollection.filter((item: any) => item.data.draft === false);
 const allCollections = await getCollection("colecciones");
-const latin = slugify(title, { lang: "es", replacement: "-" });
 const tagTitle = allCollections.filter((item: any) => item.slug === latin)[0];
+
 ---
 
 <Layout title={`Colección ${slug ? `${slug}` : ""}`}>
@@ -42,6 +44,7 @@ const tagTitle = allCollections.filter((item: any) => item.slug === latin)[0];
                 url={item.data.url}
                 text={item.body}
                 tags={item.data.tags}
+                draft={item.data.draft}
               />
             </>
           ))
