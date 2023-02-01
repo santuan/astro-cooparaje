@@ -1,46 +1,46 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Card from "@/components/Card.astro";
-import { getCollection } from "astro:content";
-const allResourses = await getCollection("recursos");
+import Layout from '@/layouts/Layout.astro';
+import Card from '@/components/Card.astro';
+import { getCollection } from 'astro:content';
+const allResourses = await getCollection('recursos');
 ---
 
 <Layout title="Todos los recursos">
-  <main class="wrapper">
-    <h1 class="title">Todos los recursos</h1>
-    <h2 class="subtitle">
-      Mostrando {allResourses.length} resultados
-    </h2>
-    <div class="resoursesList">
-      {
-        allResourses.map((item) => (
-          <Card
-            title={item.data.title}
-            slug={item.slug}
-            image={item.data.featuredImg}
-            url={item.data.url}
-            text={item.body}
-          />
-        ))
-      }
-    </div>
-  </main>
+	<main class="wrapper">
+		<h1 class="title">Todos los recursos</h1>
+		<h2 class="subtitle">
+			Mostrando {allResourses.length} resultados
+		</h2>
+		<div class="resoursesList">
+			{
+				allResourses.map((item) => (
+					<Card
+						title={item.data.title}
+						slug={item.slug}
+						image={item.data.featuredImg}
+						url={item.data.url}
+						text={item.body}
+					/>
+				))
+			}
+		</div>
+	</main>
 </Layout>
 
 <style>
-  .wrapper {
-    @apply flex flex-col gap-6 py-24;
-  }
+	.wrapper {
+		@apply flex flex-col gap-6 py-24;
+	}
 
-  .title {
-    @apply px-6 mb-4 font-serif text-4xl font-light text-center md:text-6xl;
-  }
+	.title {
+		@apply px-6 mb-4 font-serif text-4xl font-light text-center md:text-6xl;
+	}
 
-  .subtitle {
-    @apply px-6 mb-2 font-sans text-lg font-light text-center md:text-xl;
-  }
+	.subtitle {
+		@apply px-6 mb-2 font-sans text-lg font-light text-center md:text-xl;
+	}
 
-  .resoursesList {
-    @apply grid gap-3 px-4 mx-auto md:grid-cols-2 xl:grid-cols-3;
-  }
+	.resoursesList {
+		@apply grid gap-3 px-4 mx-auto md:grid-cols-2 xl:grid-cols-3;
+	}
 </style>

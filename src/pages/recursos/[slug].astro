@@ -3,7 +3,7 @@ import IconExternalLink from '@/components/Icons/IconExternalLink.astro';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from '@astrojs/image/components';
 import { getCollection } from 'astro:content';
-import slugify from "limax";
+import slugify from 'limax';
 
 export async function getStaticPaths() {
 	const getRecurso = await getCollection('recursos');
@@ -18,14 +18,28 @@ const { data, render, body } = Astro.props;
 const { Content } = await render();
 ---
 
-<Layout bodyClass="recursosSingle" title={data.title} description={body} image={data?.featuredImg}>
+<Layout
+	bodyClass="recursosSingle"
+	title={data.title}
+	description={body}
+	image={data?.featuredImg}
+>
 	<div data-pagefind-body class="wrapper">
 		<div class="innerWrapper">
 			{
 				data.tags && (
 					<div class="tags" data-pagefind-ignore>
 						{data.tags.map((i: any) => {
-							return <a href={`/colecciones/${slugify(i, { lang: "es", replacement: "-" })}`}>{i}</a>;
+							return (
+								<a
+									href={`/colecciones/${slugify(i, {
+										lang: 'es',
+										replacement: '-',
+									})}`}
+								>
+									{i}
+								</a>
+							);
 						})}
 					</div>
 				)

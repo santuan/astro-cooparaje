@@ -4,5 +4,5 @@ export const getFormattedDate = (date) =>
 				year: 'numeric',
 				month: 'long',
 				day: 'numeric',
-		})
+		  })
 		: '';

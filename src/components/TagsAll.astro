@@ -1,30 +1,36 @@
 ---
-import { getCollection } from "astro:content";
-import slugify from "limax";
-const allResourses = await getCollection("recursos");
+import { getCollection } from 'astro:content';
+import slugify from 'limax';
+const allResourses = await getCollection('recursos');
 const allTags = [
-  ...new Set(allResourses.map((item) => item.data?.tags).flat()),
+	...new Set(allResourses.map((item) => item.data?.tags).flat()),
 ];
 const tags = allTags.sort().filter((item: any) => item !== undefined);
 ---
 
 <div class="wrapper">
-  {
-    tags &&
-      tags.map((tag) => (
-        <a href={`/colecciones/${slugify(tag, { lang: "es", replacement: "-" })}`} class="btn ghost">
-          {tag}
-        </a>
-      ))
-  }
+	{
+		tags &&
+			tags.map((tag) => (
+				<a
+					href={`/colecciones/${slugify(tag, {
+						lang: 'es',
+						replacement: '-',
+					})}`}
+					class="btn ghost"
+				>
+					{tag}
+				</a>
+			))
+	}
 </div>
 
 <style>
-  .wrapper {
-    @apply flex flex-wrap items-center justify-center gap-3 w-full pb-12 px-5;
-  }
+	.wrapper {
+		@apply flex flex-wrap items-center justify-center gap-3 w-full pb-12 px-5;
+	}
 
-  .btn {
-    @apply min-w-[120px] px-12 !text-sm !capitalize;
-  }
+	.btn {
+		@apply min-w-[120px] px-12 !text-sm !capitalize;
+	}
 </style>

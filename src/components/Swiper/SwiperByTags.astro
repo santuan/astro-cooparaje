@@ -3,7 +3,9 @@ import { getCollection } from 'astro:content';
 import SwiperCarousel from './SwiperCarousel.astro';
 
 const allResourses = await getCollection('recursos');
-const publicResourses = allResourses.filter((item: any) => item.data.draft === false);
+const publicResourses = allResourses.filter(
+	(item: any) => item.data.draft === false
+);
 const filterMusica = ['música'];
 const filterAi = ['inteligencia artificial'];
 const filterMapas = ['mapas'];
@@ -13,32 +15,44 @@ const filterDev = ['programación'];
 
 const getMusica = publicResourses
 	.sort()
-	.filter((person) => filterMusica.every((filter) => person.data.tags?.includes(filter)))
+	.filter((person) =>
+		filterMusica.every((filter) => person.data.tags?.includes(filter))
+	)
 	.slice(0, 8);
 
 const getInteligencia = publicResourses
 	.sort()
-	.filter((person) => filterAi.every((filter) => person.data.tags?.includes(filter)))
+	.filter((person) =>
+		filterAi.every((filter) => person.data.tags?.includes(filter))
+	)
 	.slice(0, 8);
 
 const getMapas = publicResourses
 	.sort()
-	.filter((person) => filterMapas.every((filter) => person.data.tags?.includes(filter)))
+	.filter((person) =>
+		filterMapas.every((filter) => person.data.tags?.includes(filter))
+	)
 	.slice(0, 8);
 
 const getAprendizaje = publicResourses
 	.sort()
-	.filter((person) => filterAprendizaje.every((filter) => person.data.tags?.includes(filter)))
+	.filter((person) =>
+		filterAprendizaje.every((filter) => person.data.tags?.includes(filter))
+	)
 	.slice(0, 8);
 
 const getDiseno = publicResourses
 	.sort()
-	.filter((person) => filterDiseno.every((filter) => person.data.tags?.includes(filter)))
+	.filter((person) =>
+		filterDiseno.every((filter) => person.data.tags?.includes(filter))
+	)
 	.slice(0, 8);
 
-	const getDev = publicResourses
+const getDev = publicResourses
 	.sort()
-	.filter((person) => filterDev.every((filter) => person.data.tags?.includes(filter)))
+	.filter((person) =>
+		filterDev.every((filter) => person.data.tags?.includes(filter))
+	)
 	.slice(0, 8);
 ---
 

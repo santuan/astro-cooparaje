@@ -1,20 +1,20 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Search from "@/components/Search.astro";
-import AllTags from "@/components/TagsAll.astro";
-import HeroHome from "@/components/Hero/HeroHome.astro";
+import Layout from '@/layouts/Layout.astro';
+import Search from '@/components/Search.astro';
+import AllTags from '@/components/TagsAll.astro';
+import HeroHome from '@/components/Hero/HeroHome.astro';
 ---
 
 <Layout title="Cooparaje — colección de recursos">
-  <div class="wrapper">
-    <HeroHome />
-    <Search />
-  </div>
-  <AllTags />
+	<div class="wrapper">
+		<HeroHome />
+		<Search />
+	</div>
+	<AllTags />
 </Layout>
 
 <style>
-  .wrapper {
-    @apply relative z-20 max-w-4xl pt-20 pb-6 mx-auto lg:pt-32;
-  }
+	.wrapper {
+		@apply relative z-20 max-w-4xl pt-20 pb-6 mx-auto lg:pt-32;
+	}
 </style>

@@ -1,46 +1,50 @@
 ---
 const {
-  prevUrl,
-  nextUrl,
-  prevText = "anterior",
-  nextText = "siguiente",
+	prevUrl,
+	nextUrl,
+	prevText = 'anterior',
+	nextText = 'siguiente',
 } = Astro.props;
 ---
 
 {
-  (prevUrl || nextUrl) && (
-    <div class="wrapper">
-      <div class="innerWrapper">
-        {prevUrl ? (
-          <a href={prevUrl} class="btn black ">{prevText}</a>
-          ):(
-          <span class="btn black disabled">{prevText}</span>
-        )}
-        {nextUrl ? (
-          <a href={nextUrl} class="btn black ">{nextText}</a>
-          ):(
-          <span class="btn black disabled">{nextText}</span>
-        )}
-      </div>
-      <div class="seeAll">
-        <a href="/recursos/todos" class="btn">
-          Ver todos en una página
-        </a>
-      </div>
-    </div>
-  )
+	(prevUrl || nextUrl) && (
+		<div class="wrapper">
+			<div class="innerWrapper">
+				{prevUrl ? (
+					<a href={prevUrl} class="btn black ">
+						{prevText}
+					</a>
+				) : (
+					<span class="btn black disabled">{prevText}</span>
+				)}
+				{nextUrl ? (
+					<a href={nextUrl} class="btn black ">
+						{nextText}
+					</a>
+				) : (
+					<span class="btn black disabled">{nextText}</span>
+				)}
+			</div>
+			<div class="seeAll">
+				<a href="/recursos/todos" class="btn">
+					Ver todos en una página
+				</a>
+			</div>
+		</div>
+	)
 }
 
 <style>
-  .wrapper {
-    @apply w-full max-w-lg px-4 mx-auto;
-  }
+	.wrapper {
+		@apply w-full max-w-lg px-4 mx-auto;
+	}
 
-  .innerWrapper {
-    @apply grid grid-cols-2 gap-6 my-6;
-  }
+	.innerWrapper {
+		@apply grid grid-cols-2 gap-6 my-6;
+	}
 
-  .seeAll {
-    @apply flex items-center justify-center w-full;
-  }
+	.seeAll {
+		@apply flex items-center justify-center w-full;
+	}
 </style>

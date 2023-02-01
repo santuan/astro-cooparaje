@@ -62,7 +62,9 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 									rel="noopener noreferrer"
 								>
 									<IconExternalLink />
-									<span class=" !top-1 !right-12 !text-sm !w-40 !font-mono !bg-emerald-700/90 tooltiptext">Enlace directo</span>
+									<span class=" !top-1 !right-12 !text-sm !w-40 !font-mono !bg-emerald-700/90 tooltiptext">
+										Enlace directo
+									</span>
 								</a>
 							</div>
 						</div>
@@ -70,7 +72,9 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 				})
 			}
 		</div>
-		<div style="max-width: 72rem;margin: 0 auto;position: absolute;width: 100%; bottom: 0;">
+		<div
+			style="max-width: 72rem;margin: 0 auto;position: absolute;width: 100%; bottom: 0;"
+		>
 			<div class="swiper-button-next"></div>
 			<div class="swiper-button-prev"></div>
 			<div class="swiper-pagination"></div>
@@ -170,13 +174,15 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 	.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
 		transform: scale(0.66);
 	}
-	.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+	.swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet-active-prev-prev {
 		transform: scale(0.33);
 	}
 	.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
 		transform: scale(0.66);
 	}
-	.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
+	.swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet-active-next-next {
 		transform: scale(0.33);
 	}
 	.swiper-pagination-bullet {
@@ -216,37 +222,49 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 		top: 50%;
 		transform: translate3d(0px, -50%, 0);
 	}
-	.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet,
+	.swiper-pagination-vertical.swiper-pagination-bullets
+		.swiper-pagination-bullet,
 	.swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {
 		margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
 		display: block;
 	}
 	.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-	.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+	.swiper-vertical
+		> .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
 		top: 50%;
 		transform: translateY(-50%);
 		width: 8px;
 	}
-	.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
-	.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+	.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet,
+	.swiper-vertical
+		> .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet {
 		display: inline-block;
 		transition: 0.2s transform, 0.2s top;
 	}
 	.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-	.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+	.swiper-pagination-horizontal.swiper-pagination-bullets
+		.swiper-pagination-bullet {
 		margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
 	}
-	.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+	.swiper-horizontal
+		> .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
 	.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
 		left: 50%;
 		transform: translateX(-50%);
 		white-space: nowrap;
 	}
-	.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
-	.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+	.swiper-horizontal
+		> .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet,
+	.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet {
 		transition: 0.2s transform, 0.2s left;
 	}
-	.swiper-horizontal.swiper-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+	.swiper-horizontal.swiper-rtl
+		> .swiper-pagination-bullets-dynamic
+		.swiper-pagination-bullet {
 		transition: 0.2s transform, 0.2s right;
 	}
 	.swiper-pagination-progressbar {
@@ -263,19 +281,23 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 		transform: scale(0);
 		transform-origin: left top;
 	}
-	.swiper-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+	.swiper-rtl
+		.swiper-pagination-progressbar
+		.swiper-pagination-progressbar-fill {
 		transform-origin: right top;
 	}
 	.swiper-horizontal > .swiper-pagination-progressbar,
 	.swiper-pagination-progressbar.swiper-pagination-horizontal,
 	.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite,
-	.swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+	.swiper-vertical
+		> .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
 		width: 100%;
 		height: 4px;
 		left: 0;
 		top: 0;
 	}
-	.swiper-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+	.swiper-horizontal
+		> .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
 	.swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite,
 	.swiper-pagination-progressbar.swiper-pagination-vertical,
 	.swiper-vertical > .swiper-pagination-progressbar {
@@ -334,7 +356,7 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 	}
 	.swiper-button-prev,
 	.swiper-rtl .swiper-button-next {
-		@apply  right-20 left-auto lg:right-auto lg:left-2.5;
+		@apply right-20 left-auto lg:right-auto lg:left-2.5;
 	}
 	.swiper-button-prev:after,
 	.swiper-rtl .swiper-button-next:after {

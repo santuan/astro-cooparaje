@@ -1,31 +1,31 @@
 ---
-import Logo from "@/components/Icons/Logo.astro";
-import Navigation from "@/components/Navigation.astro";
+import Logo from '@/components/Icons/Logo.astro';
+import Navigation from '@/components/Navigation.astro';
 ---
 
 <header>
-  <div class="wrapper">
-    <Logo />
-    <div class="appNav">
-      <Navigation />
-    </div>
-  </div>
+	<div class="wrapper">
+		<Logo />
+		<div class="appNav">
+			<Navigation />
+		</div>
+	</div>
 </header>
 
 <style>
-  .wrapper {
-    @apply max-w-6xl mx-auto flex items-center justify-between px-2 md:px-5;
-  }
+	.wrapper {
+		@apply max-w-6xl mx-auto flex items-center justify-between px-2 md:px-5;
+	}
 
-  header {
-    @apply fixed p-3 left-0 right-0 top-0 bg-stone-900/80 backdrop-contrast-200  backdrop-blur-md z-50;
-  }
+	header {
+		@apply fixed p-3 left-0 right-0 top-0 bg-stone-900/80 backdrop-contrast-200  backdrop-blur-md z-50;
+	}
 
-  header nav {
-    @apply !hidden md:flex;
-  }
+	header nav {
+		@apply !hidden md:flex;
+	}
 
-  .appNav {
-    @apply hidden md:flex;
-  }
+	.appNav {
+		@apply hidden md:flex;
+	}
 </style>

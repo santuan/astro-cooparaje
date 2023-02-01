@@ -3,20 +3,20 @@ const { collectionTitle, title } = Astro.props;
 ---
 
 {
-  collectionTitle !== undefined ? (
-    <div>
-      <h2 class="title">
-        <span class="text-4xl">{collectionTitle.data?.icono}</span>
-        <span class="">{collectionTitle.data?.title}</span>
-      </h2>
-    </div>
-  ) : (
-    <h2 class="title">{title}</h2>
-  )
+	collectionTitle !== undefined ? (
+		<div>
+			<h2 class="title">
+				<span class="text-4xl">{collectionTitle.data?.icono}</span>
+				<span class="">{collectionTitle.data?.title}</span>
+			</h2>
+		</div>
+	) : (
+		<h2 class="title">{title}</h2>
+	)
 }
 
 <style>
-  .title {
-    @apply mb-6 flex-col sm:flex-row font-serif text-4xl md:text-5xl flex justify-start items-center gap-6 font-light text-left capitalize;
-  }
+	.title {
+		@apply mb-6 flex-col sm:flex-row font-serif text-4xl md:text-5xl flex justify-start items-center gap-6 font-light text-left capitalize;
+	}
 </style>

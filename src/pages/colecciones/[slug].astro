@@ -1,75 +1,77 @@
 ---
-import Card from "@/components/Card.astro";
-import TagsTitle from "@/components/TagsTitleChecker.astro";
-import Layout from "@/layouts/Layout.astro";
-import { getCollection } from "astro:content";
-import slugify from "limax";
+import Card from '@/components/Card.astro';
+import TagsTitle from '@/components/TagsTitleChecker.astro';
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import slugify from 'limax';
 
 export async function getStaticPaths() {
-  const allResourses = await getCollection("recursos");
-  const allTags = [
-    ...new Set(allResourses.map((item) => item.data?.tags).flat()),
-  ];
-  const publicTags = allTags.filter((item: any) => item !== undefined);
-  return publicTags.map((item) => ({
-    params: { slug: slugify(item, { lang: "es", replacement: "-" }) },
-    props: { title: item, resourses: allResourses },
-  }));
+	const allResourses = await getCollection('recursos');
+	const allTags = [
+		...new Set(allResourses.map((item) => item.data?.tags).flat()),
+	];
+	const publicTags = allTags.filter((item: any) => item !== undefined);
+	return publicTags.map((item) => ({
+		params: { slug: slugify(item, { lang: 'es', replacement: '-' }) },
+		props: { title: item, resourses: allResourses },
+	}));
 }
 
 const { slug } = Astro.params;
 const { title, resourses } = Astro.props;
-const latin = slugify(title, { lang: "es", replacement: "-" });
+const latin = slugify(title, { lang: 'es', replacement: '-' });
 const getcollection = resourses.filter((item: any) =>
-  item.data?.tags?.includes(title)
+	item.data?.tags?.includes(title)
 );
-const collection = getcollection.filter((item: any) => item.data.draft === false);
-const allCollections = await getCollection("colecciones");
+const collection = getcollection.filter(
+	(item: any) => item.data.draft === false
+);
+const allCollections = await getCollection('colecciones');
 const tagTitle = allCollections.filter((item: any) => item.slug === latin)[0];
 
 ---
 
-<Layout title={`Colección ${slug ? `${slug}` : ""}`}>
-  <div data-pagefind-body class="wrapper">
-    <div class="innerWrapper">
-      <TagsTitle collectionTitle={tagTitle} title={title}/>
-      <div class="resoursesList" data-pagefind-ignore>
-        {
-          collection.map((item: any) => (
-            <>
-              <Card
-                title={item.data.title}
-                slug={item.slug}
-                image={item.data.featuredImg}
-                url={item.data.url}
-                text={item.body}
-                tags={item.data.tags}
-                draft={item.data.draft}
-              />
-            </>
-          ))
-        }
-      </div>
-    </div>
-    <img
-      src="/thumb-default.jpg"
-      role="presentation"
-      class="hidden"
-      data-pagefind-meta="image[src]"
-    />
-  </div>
+<Layout title={`Colección ${slug ? `${slug}` : ''}`}>
+	<div data-pagefind-body class="wrapper">
+		<div class="innerWrapper">
+			<TagsTitle collectionTitle={tagTitle} title={title} />
+			<div class="resoursesList" data-pagefind-ignore>
+				{
+					collection.map((item: any) => (
+						<>
+							<Card
+								title={item.data.title}
+								slug={item.slug}
+								image={item.data.featuredImg}
+								url={item.data.url}
+								text={item.body}
+								tags={item.data.tags}
+								draft={item.data.draft}
+							/>
+						</>
+					))
+				}
+			</div>
+		</div>
+		<img
+			src="/thumb-default.jpg"
+			role="presentation"
+			class="hidden"
+			data-pagefind-meta="image[src]"
+		/>
+	</div>
 </Layout>
 
 <style>
-  .wrapper {
-    @apply py-24;
-  }
+	.wrapper {
+		@apply py-24;
+	}
 
-  .innerWrapper {
-    @apply relative z-20 max-w-6xl px-4 pt-10 mx-auto;
-  }
+	.innerWrapper {
+		@apply relative z-20 max-w-6xl px-4 pt-10 mx-auto;
+	}
 
-  .resoursesList {
-    @apply flex flex-col gap-6;
-  }
+	.resoursesList {
+		@apply flex flex-col gap-6;
+	}
 </style>

@@ -1,67 +1,64 @@
 ---
-import IconMenu from "@/components/Icons/IconMenu.astro";
+import IconMenu from '@/components/Icons/IconMenu.astro';
 ---
 
-
 <script>
-  const button = document.querySelector(".toggleMenu") as HTMLElement;
-  const backDropButton = document.querySelector(
-    ".backDropButton"
-  ) as HTMLElement;
-  const offcanvasNav = document.querySelector(".OffcanvasNav") as HTMLElement;
+	const button = document.querySelector('.toggleMenu') as HTMLElement;
+	const backDropButton = document.querySelector(
+		'.backDropButton'
+	) as HTMLElement;
+	const offcanvasNav = document.querySelector('.OffcanvasNav') as HTMLElement;
 
-  button.addEventListener("click", function () {
-    offcanvasNav.classList.toggle("active");
-    button.classList.toggle("active");
-    backDropButton.classList.toggle("active");
-  });
+	button.addEventListener('click', function () {
+		offcanvasNav.classList.toggle('active');
+		button.classList.toggle('active');
+		backDropButton.classList.toggle('active');
+	});
 
-  backDropButton.addEventListener("click", function () {
-    offcanvasNav.classList.toggle("active");
-    button.classList.toggle("active");
-    backDropButton.classList.toggle("active");
-  });
+	backDropButton.addEventListener('click', function () {
+		offcanvasNav.classList.toggle('active');
+		button.classList.toggle('active');
+		backDropButton.classList.toggle('active');
+	});
 </script>
-
 
 <button type="button" aria-label="Backdrop" class="backDropButton"></button>
 
 <div class="OffcanvasNav">
-  <slot />
+	<slot />
 </div>
 
 <button aria-label="Mostrar menu" class="toggleMenu">
-  <span>Menú</span>
-  <IconMenu />
+	<span>Menú</span>
+	<IconMenu />
 </button>
 
-
 <style is:global>
-  .backDropButton {
-    @apply fixed inset-0 bg-stone-900/60 duration-300 backdrop-blur w-full opacity-0 select-none -z-20;
-  }
+	.backDropButton {
+		@apply fixed inset-0 bg-stone-900/60 duration-300 backdrop-blur w-full opacity-0 select-none -z-20;
+	}
 
-  .backDropButton.active {
-    @apply opacity-100 z-[60];
-  }
+	.backDropButton.active {
+		@apply opacity-100 z-[60];
+	}
 
-  .toggleMenu {
-    @apply fixed top-2 bg-stone-800 pr-2 rounded-md hover:bg-stone-700 duration-100 py-1 md:hidden right-2 m-2 z-[60] flex items-center;
-  }
+	.toggleMenu {
+		@apply fixed top-2 bg-stone-800 pr-2 rounded-md hover:bg-stone-700 duration-100 py-1 md:hidden right-2 m-2 z-[60] flex items-center;
+	}
 
-  .toggleMenu span {
-    @apply pl-3 pr-2 font-mono uppercase;
-  }
+	.toggleMenu span {
+		@apply pl-3 pr-2 font-mono uppercase;
+	}
 
-  .OffcanvasNav {
-    @apply fixed text-left overflow-y-auto shadow-2xl font-mono text-2xl right-0 top-0 bottom-0 bg-stone-900 text-white duration-700 w-56 sm:w-64 p-3 z-[1000] flex justify-start pt-12 flex-col translate-x-full;
-  }
+	.OffcanvasNav {
+		@apply fixed text-left overflow-y-auto shadow-2xl font-mono text-2xl right-0 top-0 bottom-0 bg-stone-900 text-white duration-700 w-56 sm:w-64 p-3 z-[1000] flex justify-start pt-12 flex-col translate-x-full;
+	}
 
-  .OffcanvasNav.active {
-    @apply translate-x-0;
-  }
+	.OffcanvasNav.active {
+		@apply translate-x-0;
+	}
 
-  .OffcanvasNav nav {
-    @apply !flex-col;
-  }
+	.OffcanvasNav nav {
+		@apply !flex-col;
+	}
 </style>
