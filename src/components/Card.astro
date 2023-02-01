@@ -47,20 +47,21 @@ const { title, slug, image, url, text, tags } = Astro.props;
       }
     </div>
     <a
-      class="externalLink"
+      class="externalLink tooltip"
       href={url}
       target="_blank"
       title="Enlace directo al recurso "
       rel="noopener noreferrer"
     >
       <IconExternalLink />
+      <span class=" !top-1 !right-12 !text-sm !w-40 !font-mono  tooltiptext">Enlace directo</span>
     </a>
   </div>
 </div>
 
 <style>
   .card {
-    @apply relative flex flex-col w-full mb-2 overflow-hidden duration-500 border-2 border-transparent shadow-sm hover:shadow-lg bg-stone-900  lg:h-64 lg:flex-row hover:shadow-amber-400/50 hover:border-amber-400;
+    @apply relative max-w-sm mx-auto sm:max-w-full flex flex-col w-full mb-2 overflow-hidden duration-300 border-2 border-transparent shadow-sm hover:shadow-lg bg-stone-900 lg:h-64 lg:flex-row hover:shadow-amber-400/50 hover:border-amber-400;
   }
 
   .image {
