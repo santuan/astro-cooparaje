@@ -55,14 +55,14 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 									</a>
 								</div>
 								<a
-									class="absolute top-0 right-0 z-20 flex items-center justify-center p-2 m-2 font-mono text-2xl font-bold text-white transition-all duration-200 rounded bg-emerald-700/90  hover:bg-stone-700 tooltip"
+									class="absolute top-0 right-0 z-20 flex items-center justify-center p-2 m-2 font-mono text-2xl font-bold text-white transition-all duration-200 rounded hover:bg-emerald-700/90  bg-stone-700 tooltip"
 									href={data?.url}
 									target="_blank"
 									title="Enlace directo al recurso "
 									rel="noopener noreferrer"
 								>
 									<IconExternalLink />
-									<span class=" !top-1 !right-12 !text-sm !w-40 !font-mono tooltiptext">Enlace directo</span>
+									<span class=" !top-1 !right-12 !text-sm !w-40 !font-mono !bg-emerald-700/90 tooltiptext">Enlace directo</span>
 								</a>
 							</div>
 						</div>

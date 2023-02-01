@@ -39,7 +39,7 @@ const { title, slug, image, url, text, tags } = Astro.props;
     <div class="tags">
       {
         tags &&
-          tags.map((i: any) => (
+          tags.sort().map((i: any) => (
             <a href={`/colecciones/${slugify(i, { lang: "es", replacement: "-" })}`} class="btn ghost">
               {i}
             </a>

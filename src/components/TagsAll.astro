@@ -17,7 +17,6 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
       tags.map((tag) => (
         <a href={`/colecciones/${slugify(tag, { lang: "es", replacement: "-" })}`} class="btn ghost">
           {tag}
-          <TagsTitle collectionTitle={tag} title={tag}/>
         </a>
       ))
   }
