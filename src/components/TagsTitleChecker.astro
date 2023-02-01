@@ -5,9 +5,9 @@ const { collectionTitle, title } = Astro.props;
 {
   collectionTitle !== undefined ? (
     <div>
-      <h2 class="title !text-center flex flex-col">
-        <span class="text-6xl">{collectionTitle.data?.icono}</span>
-        <span class="text-2xl">{collectionTitle.data?.title}</span>
+      <h2 class="title">
+        <span class="text-4xl">{collectionTitle.data?.icono}</span>
+        <span class="">{collectionTitle.data?.title}</span>
       </h2>
     </div>
   ) : (
@@ -17,6 +17,6 @@ const { collectionTitle, title } = Astro.props;
 
 <style>
   .title {
-    @apply mb-6 font-serif text-4xl md:text-6xl font-light text-left capitalize;
+    @apply mb-6 flex-col sm:flex-row font-serif text-4xl md:text-5xl flex justify-start items-center gap-6 font-light text-left capitalize;
   }
 </style>
