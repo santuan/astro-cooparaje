@@ -28,10 +28,16 @@ const collection = getcollection.filter(
 );
 const allCollections = await getCollection('colecciones');
 const tagTitle = allCollections.filter((item: any) => item.slug === latin)[0];
-
 ---
 
-<Layout title={`Colección ${slug ? `${slug}` : ''}`}>
+<Layout
+	title={`Colección ${slug ? `${slug}` : ''}`}
+	image={`${
+		tagTitle
+			? `/image/${slug}.png`
+			: 'https://images.ctfassets.net/hamax8g2qtd6/5lxJY8UHC6F25QmUVc6btE/23b074870555f77287daebdd9c19ec33/ogimage.jpg'
+	}`}
+>
 	<div data-pagefind-body class="wrapper">
 		<div class="innerWrapper">
 			<TagsTitle collectionTitle={tagTitle} title={title} />
