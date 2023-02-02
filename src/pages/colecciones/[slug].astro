@@ -5,21 +5,24 @@ import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import slugify from 'limax';
 
+const { slug } = Astro.params;
+
+const { title, resourses } = Astro.props;
+
 export async function getStaticPaths() {
 	const allResourses = await getCollection('recursos');
 	const allTags = [
 		...new Set(allResourses.map((item) => item.data?.tags).flat()),
 	];
 	const publicTags = allTags.filter((item: any) => item !== undefined);
-	return publicTags.map((item) => ({
+	return publicTags.map((item : any) => ({
 		params: { slug: slugify(item, { lang: 'es', replacement: '-' }) },
 		props: { title: item, resourses: allResourses },
 	}));
 }
 
-const { slug } = Astro.params;
-const { title, resourses } = Astro.props;
 const latin = slugify(title, { lang: 'es', replacement: '-' });
+
 const getcollection = resourses.filter((item: any) =>
 	item.data?.tags?.includes(title)
 );
@@ -27,6 +30,7 @@ const collection = getcollection.filter(
 	(item: any) => item.data.draft === false
 );
 const allCollections = await getCollection('colecciones');
+
 const tagTitle = allCollections.filter((item: any) => item.slug === latin)[0];
 ---
 

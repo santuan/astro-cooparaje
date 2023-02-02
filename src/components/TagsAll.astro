@@ -11,7 +11,7 @@ const tags = allTags.sort().filter((item: any) => item !== undefined);
 <div class="wrapper">
 	{
 		tags &&
-			tags.map((tag) => (
+			tags.map((tag: any) => (
 				<a
 					href={`/colecciones/${slugify(tag, {
 						lang: 'es',

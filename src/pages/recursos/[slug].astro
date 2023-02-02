@@ -2,7 +2,7 @@
 import IconExternalLink from '@/components/Icons/IconExternalLink.astro';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from '@astrojs/image/components';
-import { getCollection } from 'astro:content';
+import { getCollection, CollectionEntry } from 'astro:content';
 import slugify from 'limax';
 
 export async function getStaticPaths() {
@@ -14,7 +14,8 @@ export async function getStaticPaths() {
 	}));
 }
 
-const { data, render, body } = Astro.props;
+const { data } = Astro.props as CollectionEntry<'recursos'>;
+const { render, body } = Astro.props;
 const { Content } = await render();
 ---
 
@@ -82,8 +83,8 @@ const { Content } = await render();
 					<div class="hidden">
 						Colecciones:
 						<div class="tags">
-							{data.tags.map((i: any) => {
-								return <>{i + 1 !== data.tags.length ? `${i}, ` : i}</>;
+							{data?.tags?.map((i: any) => {
+								return <>{i + 1 !== data?.tags?.length ? `${i}, ` : i}</>;
 							})}
 						</div>
 					</div>

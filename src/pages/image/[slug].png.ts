@@ -1,16 +1,20 @@
 import type { APIContext } from 'astro';
-import satori from 'satori'
+import satori from 'satori';
 import { html } from 'satori-html';
 import { Resvg } from '@resvg/resvg-js';
 
-const pages = await import.meta.glob('/src/content/colecciones/*.mdx', { eager: true });
+const pages = await import.meta.glob('/src/content/colecciones/*.mdx', {
+	eager: true,
+});
 
 export async function get({ params, request }: APIContext) {
-  let q = `/src/content/colecciones/${params.slug}.mdx`;
-  console.log(params)
-  const { title, icono } = pages[q].frontmatter;
-  const yeseva = await fetch('https://www.1001fonts.com/download/font/yeseva-one.regular.ttf').then(res => res.arrayBuffer())
-  const markup = html`
+	let q = `/src/content/colecciones/${params.slug}.mdx`;
+	console.log(params);
+	const { title, icono } = pages[q].frontmatter;
+	const yeseva = await fetch(
+		'https://www.1001fonts.com/download/font/yeseva-one.regular.ttf'
+	).then((res) => res.arrayBuffer());
+	const markup = html`
   <div
 		style="
     color: #111827;
@@ -95,34 +99,34 @@ export async function get({ params, request }: APIContext) {
 		</div>
 	</div>
 `;
-  const svg = await satori(markup, {
-    width: 1200,
-    height: 600,
-    fonts: [
-      {
-        name: 'Yeseva One',
-        data: yeseva,
-      }
-    ],
-  });
+	const svg = await satori(markup, {
+		width: 1200,
+		height: 600,
+		fonts: [
+			{
+				name: 'Yeseva One',
+				data: yeseva,
+			},
+		],
+	});
 
-  const resvg = new Resvg(svg)
-  const pngData = resvg.render()
-  const pngBuffer = pngData.asPng()
+	const resvg = new Resvg(svg);
+	const pngData = resvg.render();
+	const pngBuffer = pngData.asPng();
 
-  return {
-    body: pngBuffer,
-    encoding: 'binary',
-    headers: {
-      'Content-Type': 'image/png',
-    }
-  }
+	return {
+		body: pngBuffer,
+		encoding: 'binary',
+		headers: {
+			'Content-Type': 'image/png',
+		},
+	};
 }
 
 export async function getStaticPaths() {
-  const paths = Object.keys(pages).map((path) => {
-    const [, slug] = path.match(/\/colecciones\/(.*)\.mdx$/);
-    return { params: { slug } };
-  });
-  return paths;
+	const paths = Object.keys(pages).map((path) => {
+		const [, slug] = path.match(/\/colecciones\/(.*)\.mdx$/);
+		return { params: { slug } };
+	});
+	return paths;
 }

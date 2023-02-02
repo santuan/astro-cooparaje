@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
-import react from "@astrojs/react";
+import react from '@astrojs/react';
 import image from '@astrojs/image';
 
 // https://astro.build/config
@@ -16,8 +16,8 @@ export default defineConfig({
 		}),
 	],
 	vite: {
-    optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
-    },
-  },
+		optimizeDeps: {
+			exclude: ['@resvg/resvg-js'],
+		},
+	},
 });
