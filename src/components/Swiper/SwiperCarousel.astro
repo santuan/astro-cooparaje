@@ -7,7 +7,7 @@ const { data, title } = Astro.props;
 const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 ---
 
-<div class="relative lg:px-0 px-4 py-6 bg-stone-900">
+<div class="relative lg:px-0 px-0 py-6 bg-stone-900">
 	<div class="max-w-6xl px-3 mx-auto mb-3">
 		<a
 			href={`/colecciones/${tagSlug}`}
@@ -33,7 +33,7 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 				data.map(({ data, slug }: any) => {
 					return (
 						<div class="swiper-slide">
-							<div class="relative flex flex-col items-center justify-center overflow-hidden duration-300 shadow-xl bg-stone-800 ring-stone-800 ring hover:ring-amber-400 group ">
+							<div class="relative flex flex-col items-center justify-center mx-2 overflow-hidden duration-300 shadow-xl bg-stone-800 ring-stone-800 ring hover:ring-amber-400 group ">
 								<div class="z-0 md:h-64 w-full">
 									<Image
 										aspectRatio="4:3"
@@ -103,7 +103,7 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 				slidesPerView: 2,
 				spaceBetween: 20,
 			},
-			900: {
+			1000: {
 				slidesPerView: 3,
 				spaceBetween: 20,
 			},
