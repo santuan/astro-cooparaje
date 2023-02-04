@@ -9,7 +9,6 @@ const pages = await import.meta.glob('/src/content/colecciones/*.mdx', {
 
 export async function get({ params, request }: APIContext) {
 	let q = `/src/content/colecciones/${params.slug}.mdx`;
-	console.log(params);
 	const { title, icono } = pages[q].frontmatter;
 	const yeseva = await fetch(
 		'https://www.1001fonts.com/download/font/yeseva-one.regular.ttf'
