@@ -55,19 +55,20 @@ astro build && pnpm postbuild && pnpm preview
 
 In local build it takes a lot of time to generate the images. (less that in the Gatsby version). But when deployed, the second build now has cache the images an it build a lot faster.
 
-*CUando se buildea localmente las imagenes tardan bastante en generarse. (mucho menos que usando Gatsby). Una vez deployado el sitio hace un cache de las imagenes generadas y el buildeo es mucho mas rápido.*
+*CUando se buildea localmente las imágenes tardan bastante en generarse. (mucho menos que usando Gatsby). Una vez deployado el sitio hace un cache de las imágenes generadas y el buildeo es mucho mas rápido.*
 
 ## Astro Satori for OG images generation
 
 Thanks a lot to [kevinzunigacuellar](https://github.com/kevinzunigacuellar/astro-satori) from which I learn a lot on how to use [satori](https://github.com/vercel/satori) to generate images from code.
 
-*Se agradece a [kevinzunigacuellar](https://github.com/kevinzunigacuellar/astro-satori) de donde aprendi mucho de como usar la libreria  [satori](https://github.com/vercel/satori) para generar imagenes con código.*
+*Se agradece a [kevinzunigacuellar](https://github.com/kevinzunigacuellar/astro-satori) de donde aprendi mucho de como usar la libreria  [satori](https://github.com/vercel/satori) para generar imágenes con código.*
 
 ## Basic script to generate MDX files from a Contentful site.
 
-Inside script folder there is a code that is based on this awesome tutorial and I copy/paste&tweak and helped me generate MDX files from my Contentful page-data source on production. It worked for me but i barely get it to work (this parts are not my speciality) so handle with care :)
+Inside script folder there is a code that is based on this awesome tutorial [by Jack Herrington](https://youtu.be/gi4c7fbeURc) and I copy/paste&tweak and helped me generate MDX files from my Contentful page-data source on production. It worked for me but i barely get it to work (this parts are not my speciality) so handle with care :)
 
-*Dentro de la carpeta script esta el codigo basado en este gran tutorial y que copie/pegue/edite y me ayudo para generar archivos MDX de la información que tengo en Contentful. Ami me sirvio pero apenas que esta andando (esta parte no es mi especialidad) asique usarlo con los debidos recaudos.*
+
+*Dentro de la carpeta script esta el código basado en este gran tutorial [de Jack Herrington](https://youtu.be/gi4c7fbeURc) y que copie/pegue/edite y me ayudo para generar archivos MDX de la información que tengo en Contentful. Ami me sirvio pero apenas que esta andando (esta parte no es mi especialidad) asique usarlo con los debidos recaudos.*
 
 
 ## Thats all folks! / Eso es todo amigos!
