@@ -3,8 +3,9 @@ Work in progress / trabajo en proceso :)
 
 [astro-cooparaje.vercel.app](https://astro-cooparaje.vercel.app/)
 
-
-![Logo](https://res.cloudinary.com/srcouto/image/upload/v1675475195/cooparaje/msedge_NvPp440Jtv_vjjjyj.png)
+<a href="https://astro-cooparaje.vercel.app/" target="_blank">
+  <img src="https://res.cloudinary.com/srcouto/image/upload/v1675475195/cooparaje/msedge_NvPp440Jtv_vjjjyj.png"/>
+</a>
 
 
 ## Collection website example made with Astro and
