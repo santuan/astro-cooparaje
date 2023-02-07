@@ -4,6 +4,7 @@ html {
 
 body {
 	@apply bg-gradient-to-b from-stone-900 via-stone-800 to-stone-800/90 bg-fixed text-white;
+	background-image: url("/backNoisePattern.svg")
 }
 
 .btn {
