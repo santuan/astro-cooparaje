@@ -1,8 +1,8 @@
 ---
 import IconExternalLink from '@/components/Icons/IconExternalLink.astro';
 import Layout from '@/layouts/Layout.astro';
-import { Image } from '@astrojs/image/components';
-import { getCollection, CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import slugify from 'limax';
 
 export async function getStaticPaths() {
@@ -59,20 +59,16 @@ const { Content } = await render();
 		</div>
 		<Image
 			data-pagefind-ignore
-			aspectRatio="16:9"
-			height={900}
-			width={1600}
-			format="webp"
+			height="900"
+			width="1600"
 			src={`${data.featuredImg}?w=1600&h=900&q=70`}
 			alt={data.title}
-			class="backImage"
+			class="imgImage"
 		/>
 		<Image
 			data-pagefind-meta="image[src]"
-			aspectRatio="16:9"
-			height={290}
-			width={380}
-			format="webp"
+			height="290"
+			width="380"
 			src={`${data.featuredImg}?w=380&h=290&q=70`}
 			alt={data.title}
 			class="!hidden"

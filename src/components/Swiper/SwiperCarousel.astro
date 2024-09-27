@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import IconExternalLink from '@/components/Icons/IconExternalLink.astro';
 import slugify from 'limax';
 const { data, title } = Astro.props;
@@ -36,10 +36,9 @@ const tagSlug = slugify(title, { lang: 'es', replacement: '-' });
 							<div class="relative flex flex-col items-center justify-center mx-2 overflow-hidden duration-300 shadow-xl bg-stone-800 ring-stone-800 ring hover:ring-amber-400 group ">
 								<div class="z-0 md:h-64 w-full">
 									<Image
-										aspectRatio="4:3"
-										height={259}
-										width={350}
-										format="webp"
+										height="259"
+										width="350"
+                    format="webp"
 										src={`${data.featuredImg}?h=259&q=70`}
 										alt={data?.title}
 										class="object-cover w-full md:h-64 group-hover:opacity-50 duration-300"
